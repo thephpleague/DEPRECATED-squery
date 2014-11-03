@@ -6,7 +6,7 @@
 ![Version](http://img.shields.io/packagist/v/formativ/query.svg?style=flat-square)
 ![License](http://img.shields.io/packagist/l/formativ/query.svg?style=flat-square)
 
-A PHP wrapper for OSQuery.
+A PHP wrapper for [OSQuery](http://osquery.io).
 
 ## Example
 
