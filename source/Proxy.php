@@ -2,6 +2,8 @@
 
 namespace Formativ\Query;
 
+use BadMethodCallException;
+
 abstract class Proxy
 {
     /**
@@ -29,6 +31,8 @@ abstract class Proxy
         if (method_exists($this->instance, $method)) {
             return call_user_func_array([$this->instance, $method], $parameters);
         }
+
+        throw new BadMethodCallException("{$method} not implemented");
     }
 
     /**

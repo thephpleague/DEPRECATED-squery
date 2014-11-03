@@ -137,6 +137,10 @@ class AuraBuilder implements Builder
      */
     public function orderBy($columns)
     {
+        if (!is_array($columns)) {
+            $columns = [$columns];
+        }
+
         $this->select->orderBy($columns);
 
         return $this;

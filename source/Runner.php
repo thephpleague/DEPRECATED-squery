@@ -15,7 +15,7 @@ class Runner extends Proxy
     }
 
     /**
-     * @return ProcessRunner
+     * @return Runner
      */
     public function getRunnerInstance()
     {
@@ -24,5 +24,17 @@ class Runner extends Proxy
         }
 
         return $this->instance;
+    }
+
+    /**
+     * @param Runner\Runner $runner
+     *
+     * @return $this
+     */
+    public function setRunnerInstance(Runner\Runner $runner)
+    {
+        $this->instance = $runner;
+
+        return $this;
     }
 }
