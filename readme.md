@@ -1,4 +1,4 @@
-# OSQuery PHP SDK
+# Query
 
 ![Build Status](http://img.shields.io/travis/formativ/query.svg?style=flat-square)
 ![Code Quality](http://img.shields.io/scrutinizer/g/formativ/query.svg?style=flat-square)
