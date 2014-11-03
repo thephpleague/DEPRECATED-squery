@@ -2,7 +2,7 @@
 
 namespace Formativ\Query;
 
-class Proxy
+abstract class Proxy
 {
     /**
      * @var mixed
@@ -12,10 +12,7 @@ class Proxy
     /**
      * @return mixed
      */
-    protected function createNewInstance()
-    {
-        return new AuraFactory("sqlite");
-    }
+    abstract protected function createNewInstance();
 
     /**
      * @param string $method

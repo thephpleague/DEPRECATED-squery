@@ -19,7 +19,7 @@ class ProcessRunner implements Runner
         $query   = $this->getBuilderQuery($builder);
         $command = $this->getQueryCommand(escapeshellarg($query));
 
-        $this->run($command, function($buffer) use ($onData) {
+        $this->run($command, function ($buffer) use ($onData) {
             $data = array_map("str_getcsv", explode("\n", $buffer));
             $this->attemptCall($data, $onData);
         }, $onError);

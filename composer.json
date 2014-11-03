@@ -1,5 +1,7 @@
 {
-    "name": "formativ/osquery",
+    "name": "formativ/query",
+    "description": "A PHP wrapper for OSQuery.",
+    "license": "MIT",
     "authors": [
         {
             "name": "Christopher Pitt",
@@ -14,6 +16,19 @@
     "autoload": {
         "psr-4": {
             "Formativ\\Query\\": "source"
+        }
+    },
+    "require-dev": {
+        "php": ">=5.5.0",
+        "phpunit/phpunit": "4.*",
+        "mockery/mockery": "0.*"
+    },
+    "autoload-dev": {
+        "files": [
+            "tests/TestCase.php"
+        ],
+        "psr-4": {
+            "Formativ\\Query\\Tests\\": "tests"
         }
     }
 }
