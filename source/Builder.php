@@ -13,4 +13,16 @@ class Builder extends Proxy
     {
         return new AuraFactory("sqlite");
     }
+
+    /**
+     * @return AuraFactory
+     */
+    public function getFactoryInstance()
+    {
+        if ($this->instance === null) {
+            $this->instance = $this->createNewInstance();
+        }
+
+        return $this->instance;
+    }
 }

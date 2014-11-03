@@ -1,10 +1,10 @@
 # OSQuery PHP SDK
 
-![Build Status](http://img.shields.io/travis/typedphp/composer-path-plugin.svg?style=flat-square)
-![Code Quality](http://img.shields.io/scrutinizer/g/typedphp/composer-path-plugin.svg?style=flat-square)
-![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/typedphp/composer-path-plugin.svg?style=flat-square)
-![Version](http://img.shields.io/packagist/v/typedphp/composer-path-plugin.svg?style=flat-square)
-![License](http://img.shields.io/packagist/l/typedphp/composer-path-plugin.svg?style=flat-square)
+![Build Status](http://img.shields.io/travis/formativ/query.svg?style=flat-square)
+![Code Quality](http://img.shields.io/scrutinizer/g/formativ/query.svg?style=flat-square)
+![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/formativ/query.svg?style=flat-square)
+![Version](http://img.shields.io/packagist/v/formativ/query.svg?style=flat-square)
+![License](http://img.shields.io/packagist/l/formativ/query.svg?style=flat-square)
 
 A PHP wrapper for OSQuery.
 

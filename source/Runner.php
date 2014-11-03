@@ -13,4 +13,16 @@ class Runner extends Proxy
     {
         return new ProcessRunner();
     }
+
+    /**
+     * @return ProcessRunner
+     */
+    public function getRunnerInstance()
+    {
+        if ($this->instance === null) {
+            $this->instance = $this->createNewInstance();
+        }
+
+        return $this->instance;
+    }
 }
