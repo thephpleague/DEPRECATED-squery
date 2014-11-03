@@ -1,0 +1,19 @@
+{
+    "name": "formativ/osquery",
+    "authors": [
+        {
+            "name": "Christopher Pitt",
+            "email": "cgpitt@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/process": "2.*",
+        "aura/sqlquery": "2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Formativ\\Query\\": "source"
+        }
+    }
+}
