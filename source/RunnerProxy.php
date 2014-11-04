@@ -5,11 +5,10 @@ namespace Formativ\Query;
 use Formativ\Query\Factory;
 use Formativ\Query\Factory\RunnerFactory;
 use Formativ\Query\Runner\Runner;
-use LogicException;
 
-class RunnerProxy
+class RunnerProxy extends AbstractProxy
 {
-    use Traits\UnacceptableTrait;
+    use Traits\Unacceptable;
 
     /**
      * @var Factory
@@ -30,49 +29,26 @@ class RunnerProxy
 
     /**
      * @param string $method
-     * @param array  $parameters
      *
-     * @return Runner
-     *
-     * @throws LogicException
+     * @return bool
      */
-    public function __call($method, array $parameters)
+    protected function handlesMethod($method)
     {
-        if ($method === "run") {
-            $runner = $this->factory->newInstance();
-
-            $this->throwIfUnacceptable($runner, Runner::class);
-
-            return call_user_func_array([$runner, "run"], $parameters);
-        }
-
-        throw new LogicException("{$method} not implemented");
+        return $method === "run";
     }
 
     /**
      * @param string $method
      * @param array  $parameters
      *
-     * @return RunnerProxy
-     *
-     * @throws LogicException
+     * @return mixed
      */
-    public static function __callStatic($method, array $parameters)
+    protected function handleMethod($method, array $parameters)
     {
-        if ($method === "with") {
-            if (count($parameters) > 0) {
-                return new static($parameters[0]);
-            }
-        }
+        $runner = $this->factory->newInstance();
 
-        if ($method === "run") {
-            $instance = new static();
+        $this->throwIfUnacceptable($runner, Runner::class);
 
-            if (count($parameters) > 0) {
-                return call_user_func_array([$instance, "run"], $parameters);
-            }
-        }
-
-        throw new LogicException("{$method} not implemented");
+        return call_user_func_array([$runner, "run"], $parameters);
     }
 }

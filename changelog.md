@@ -21,6 +21,6 @@ First release.
 - Minor changes to Formativ\Query\Builder\AuraBuilder
 - Major changes to Formativ\Query\Runner\Runner
 - Major changes to Formativ\Query\Runner\ProcessRunner
-- Removed old tests
+- Updated tests
 
 Basically, everything changed!

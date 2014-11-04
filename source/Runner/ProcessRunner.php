@@ -9,7 +9,7 @@ use Formativ\Query\Traits;
 
 class ProcessRunner implements Runner
 {
-    use Traits\UnacceptableTrait;
+    use Traits\Unacceptable;
 
     /**
      * @var Factory
@@ -56,6 +56,8 @@ class ProcessRunner implements Runner
                 $onData($data);
             }
         }, $onError);
+
+        return $this;
     }
 
     /**

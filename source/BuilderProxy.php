@@ -5,11 +5,10 @@ namespace Formativ\Query;
 use Formativ\Query\Builder\Builder;
 use Formativ\Query\Factory;
 use Formativ\Query\Factory\BuilderFactory;
-use LogicException;
 
-class BuilderProxy
+class BuilderProxy extends AbstractProxy
 {
-    use Traits\UnacceptableTrait;
+    use Traits\Unacceptable;
 
     /**
      * @var Factory
@@ -30,50 +29,26 @@ class BuilderProxy
 
     /**
      * @param string $method
-     * @param array  $parameters
      *
-     * @return Builder
-     *
-     * @throws LogicException
+     * @return bool
      */
-    public function __call($method, array $parameters)
+    protected function handlesMethod($method)
     {
-        if ($method === "select") {
-            $builder = $this->factory->newInstance();
-
-            $this->throwIfUnacceptable($builder, Builder::class);
-
-            return call_user_func_array([$builder, "columns"], $parameters);
-
-        }
-
-        throw new LogicException("{$method} not implemented");
+        return $method === "select";
     }
 
     /**
      * @param string $method
      * @param array  $parameters
      *
-     * @return Builder
-     *
-     * @throws LogicException
+     * @return mixed
      */
-    public static function __callStatic($method, array $parameters)
+    protected function handleMethod($method, array $parameters)
     {
-        if ($method === "with") {
-            if (count($parameters) > 0) {
-                return new static($parameters[0]);
-            }
-        }
+        $builder = $this->factory->newInstance();
 
-        if ($method === "select") {
-            $instance = new static();
+        $this->throwIfUnacceptable($builder, Builder::class);
 
-            if (count($parameters) > 0) {
-                return $instance->select($parameters[0]);
-            }
-        }
-
-        throw new LogicException("{$method} not implemented");
+        return call_user_func_array([$builder, "columns"], $parameters);
     }
 }

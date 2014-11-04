@@ -4,7 +4,7 @@ namespace Formativ\Query\Traits;
 
 use LogicException;
 
-trait UnacceptableTrait
+trait Unacceptable
 {
     /**
      * @param mixed  $instance
