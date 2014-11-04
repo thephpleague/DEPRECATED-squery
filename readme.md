@@ -13,13 +13,15 @@ A PHP wrapper for [OSQuery](http://osquery.io).
 ```php
 require "vendor/autoload.php";
 
-use Formativ\Query\Builder;
-use Formativ\Query\Runner;
+use Formativ\Query\BuilderProxy;
+use Formativ\Query\RunnerProxy;
 
-$query = Builder::create()->select("path")->from("processes")->limit(5);
+$builder = BuilderProxy::select("*")->from("processes")->limit(5);
 
-Runner::create()->runQuery($query, function($data) {
-   print_r($data);
+RunnerProxy::run($builder, function(array $data) {
+    // use $data
+}, function($error) {
+    // log $error
 });
 ```
 
