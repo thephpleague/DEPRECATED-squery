@@ -7,20 +7,20 @@ use Formativ\Query\Builder\Builder;
 interface Runner
 {
     /**
-     * @param string $command
-     * @param mixed  $onData
-     * @param mixed  $onError
+     * @param Builder       $builder
+     * @param callable|null $onData
+     * @param callable|null $onError
      *
      * @return $this
      */
-    public function run($command, $onData = null, $onError = null);
+    public function run(Builder $builder, callable $onData = null, callable $onError = null);
 
     /**
-     * @param Builder $builder
-     * @param mixed   $onData
-     * @param mixed   $onError
+     * @param string $command
+     * @param callable|null $onData
+     * @param callable|null $onError
      *
      * @return $this
      */
-    public function runQuery(Builder $builder, $onData = null, $onError = null);
+    public function runCommand($command, callable $onData = null, callable $onError = null);
 }

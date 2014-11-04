@@ -2,21 +2,22 @@
 
 namespace Formativ\Query\Builder;
 
-use Aura\SqlQuery\Sqlite\Select;
+use Aura\SqlQuery\Sqlite\Select as Provider;
 
 class AuraBuilder implements Builder
 {
-    /**
-     * @var Select
-     */
-    protected $select;
 
     /**
-     * @param Select $select
+     * @var Provider
      */
-    public function __construct(Select $select)
+    protected $provider;
+
+    /**
+     * @param Provider $provider
+     */
+    public function __construct(Provider $provider)
     {
-        $this->select = $select;
+        $this->provider = $provider;
     }
 
     /**
@@ -24,17 +25,7 @@ class AuraBuilder implements Builder
      */
     public function toString()
     {
-        return (string) $this->select;
-    }
-
-    /**
-     * @return $this
-     */
-    public function distinct()
-    {
-        $this->select->distinct();
-
-        return $this;
+        return (string) $this->provider;
     }
 
     /**
@@ -44,7 +35,7 @@ class AuraBuilder implements Builder
      */
     public function from($table)
     {
-        $this->select->from($table);
+        $this->provider->from($table);
 
         return $this;
     }
@@ -57,7 +48,7 @@ class AuraBuilder implements Builder
      */
     public function fromSelect(Builder $builder, $alias = null)
     {
-        $this->select->fromSubSelect($builder, $alias);
+        $this->provider->fromSubSelect($builder, $alias);
 
         return $this;
     }
@@ -70,7 +61,7 @@ class AuraBuilder implements Builder
      */
     public function where($clause, $binding = null)
     {
-        $this->select->where($clause, $binding);
+        $this->provider->where($clause, $binding);
 
         return $this;
     }
@@ -83,7 +74,7 @@ class AuraBuilder implements Builder
      */
     public function orWhere($clause, $binding = null)
     {
-        $this->select->orWhere($clause, $binding);
+        $this->provider->orWhere($clause, $binding);
 
         return $this;
     }
@@ -99,7 +90,7 @@ class AuraBuilder implements Builder
             $columns = [$columns];
         }
 
-        $this->select->groupBy($columns);
+        $this->provider->groupBy($columns);
 
         return $this;
     }
@@ -112,7 +103,7 @@ class AuraBuilder implements Builder
      */
     public function having($clause, $binding = null)
     {
-        $this->select->having($clause, $binding);
+        $this->provider->having($clause, $binding);
 
         return $this;
     }
@@ -125,7 +116,7 @@ class AuraBuilder implements Builder
      */
     public function orHaving($clause, $binding = null)
     {
-        $this->select->orHaving($clause, $binding);
+        $this->provider->orHaving($clause, $binding);
 
         return $this;
     }
@@ -141,7 +132,7 @@ class AuraBuilder implements Builder
             $columns = [$columns];
         }
 
-        $this->select->orderBy($columns);
+        $this->provider->orderBy($columns);
 
         return $this;
     }
@@ -153,7 +144,7 @@ class AuraBuilder implements Builder
      */
     public function limit($limit)
     {
-        $this->select->limit($limit);
+        $this->provider->limit($limit);
 
         return $this;
     }
@@ -165,7 +156,7 @@ class AuraBuilder implements Builder
      */
     public function offset($offset)
     {
-        $this->select->offset($offset);
+        $this->provider->offset($offset);
 
         return $this;
     }
@@ -185,7 +176,7 @@ class AuraBuilder implements Builder
         }
 
         foreach ($bindings as $key => $value) {
-            $this->select->bindValue($key, $value);
+            $this->provider->bindValue($key, $value);
         }
 
         return $this;
@@ -202,7 +193,7 @@ class AuraBuilder implements Builder
             $columns = [$columns];
         }
 
-        $this->select->cols($columns);
+        $this->provider->cols($columns);
 
         return $this;
     }

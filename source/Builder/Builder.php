@@ -10,11 +10,6 @@ interface Builder
     public function toString();
 
     /**
-     * @return $this
-     */
-    public function distinct();
-
-    /**
      * @param string $columns
      *
      * @return $this
