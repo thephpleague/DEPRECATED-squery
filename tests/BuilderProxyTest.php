@@ -5,11 +5,14 @@ namespace Formativ\Query\Tests;
 use Formativ\Query\Builder\Builder;
 use Formativ\Query\BuilderProxy;
 use Formativ\Query\Factory;
+use Formativ\Query\Factory\BuilderFactory;
 use LogicException;
 use Mockery;
 
 class BuilderProxyTest extends TestCase
 {
+    use Traits\InvalidFactories;
+
     /**
      * @test
      *
@@ -17,9 +20,9 @@ class BuilderProxyTest extends TestCase
      */
     public function itCreatesDefaultFactory()
     {
-        $builder = BuilderProxy::select("*");
+        $builder = new BuilderProxy();
 
-        $this->assertInstanceOf(Builder::class, $builder);
+        $this->assertInstanceOf(BuilderFactory::class, $this->getProtected($builder, "factory"));
     }
 
     /**
@@ -85,14 +88,6 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->setExpectedException(LogicException::class);
-
-        $factory = Mockery::mock(Factory::class);
-        $factory->shouldReceive("newInstance")->andReturn($factory);
-        $factory->shouldReceive("columns");
-
-        $builder = BuilderProxy::with($factory);
-
-        $this->assertEquals("mocked", $builder->select("*"));
+        $this->assertInvalidFactories(BuilderProxy::class, "select", "columns");
     }
 }

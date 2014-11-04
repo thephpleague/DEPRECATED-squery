@@ -13,6 +13,8 @@ use Mockery;
 
 class RunnerProxyTest extends TestCase
 {
+    use Traits\InvalidFactories;
+    
     /**
      * @test
      *
@@ -90,14 +92,6 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->setExpectedException(LogicException::class);
-
-        $factory = Mockery::mock(Factory::class);
-        $factory->shouldReceive("newInstance")->andReturn($factory);
-        $factory->shouldReceive("run");
-
-        $builder = RUnnerProxy::with($factory);
-
-        $this->assertEquals("mocked", $builder->run("echo"));
+        $this->assertInvalidFactories(RunnerProxy::class, "run", "run");
     }
 }
