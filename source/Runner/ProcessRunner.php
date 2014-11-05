@@ -17,7 +17,7 @@ class ProcessRunner implements Runner
     protected $factory;
 
     /**
-     * @param mixed $factory
+     * @param Factory|ProcessFactory $factory
      */
     public function __construct(Factory $factory = null)
     {
