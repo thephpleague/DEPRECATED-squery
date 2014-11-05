@@ -26,5 +26,5 @@ trait MissingStaticMethods
      *
      * @return void
      */
-    abstract protected function setExpectedException($class, $message = '', $code = null);
+    abstract protected function setExpectedException($class, $message = "", $code = null);
 }

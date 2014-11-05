@@ -38,4 +38,13 @@ trait InvalidFactories
      * @return void
      */
     abstract protected function assertEquals($expected, $actual, $message = "", $delta = 0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false);
+
+    /**
+     * @param string $class
+     * @param string $message
+     * @param int    $code
+     *
+     * @return void
+     */
+    abstract protected function setExpectedException($class, $message = "", $code = null);
 }
