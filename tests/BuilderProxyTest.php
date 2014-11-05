@@ -4,14 +4,17 @@ namespace Formativ\Query\Tests;
 
 use Formativ\Query\Builder\Builder;
 use Formativ\Query\BuilderProxy;
-use Formativ\Query\Factory;
 use Formativ\Query\Factory\BuilderFactory;
-use LogicException;
-use Mockery;
 
 class BuilderProxyTest extends TestCase
 {
-    use Traits\InvalidFactories;
+    use Traits\Proxy\CustomFactories;
+    use Traits\Proxy\DefaultFactories;
+    use Traits\Proxy\DelegatesMethods;
+    use Traits\Proxy\InvalidFactories;
+    use Traits\Proxy\MissingArguments;
+    use Traits\Proxy\MissingMethods;
+    use Traits\Proxy\MissingStaticMethods;
 
     /**
      * @test
@@ -20,9 +23,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itCreatesDefaultFactory()
     {
-        $builder = new BuilderProxy();
-
-        $this->assertInstanceOf(BuilderFactory::class, $this->getProtected($builder, "factory"));
+        $this->assertCustomFactories(BuilderFactory::class, BuilderProxy::class);
     }
 
     /**
@@ -32,15 +33,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itAllowsCustomFactories()
     {
-        $builder = Mockery::mock(Builder::class);
-        $builder->shouldReceive("columns")->andReturn("mocked");
-
-        $factory = Mockery::mock(Factory::class);
-        $factory->shouldReceive("newInstance")->andReturn($builder);
-
-        $builder = BuilderProxy::with($factory);
-
-        $this->assertEquals("mocked", $builder->select("*"));
+        $this->assertCustomFactories(BuilderFactory::class, BuilderProxy::class);
     }
 
     /**
@@ -50,9 +43,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForMissingStaticMethods()
     {
-        $this->setExpectedException(LogicException::class);
-
-        BuilderProxy::foo();
+        $this->assertMissingStaticMethods(BuilderProxy::class);
     }
 
     /**
@@ -62,11 +53,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForMissingMethods()
     {
-        $this->setExpectedException(LogicException::class);
-
-        $proxy = new BuilderProxy();
-
-        $proxy->foo();
+        $this->assertMissingMethods(BuilderProxy::class);
     }
 
     /**
@@ -76,9 +63,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForMissingArguments()
     {
-        $this->setExpectedException(LogicException::class);
-
-        BuilderProxy::with();
+        $this->assertMissingArguments(BuilderProxy::class);
     }
 
     /**
@@ -88,6 +73,16 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->assertInvalidFactories(BuilderProxy::class, "select", "columns");
+        $this->assertInvalidFactories(BuilderProxy::class, "select");
+    }
+
+    /**
+     * @test
+     *
+     * @return void
+     */
+    public function itDelegatesMethods()
+    {
+        $this->assertDelegatesMethods(BuilderFactory::class, Builder::class, "columns", BuilderProxy::class, "select");
     }
 }

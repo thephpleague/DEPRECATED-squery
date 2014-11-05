@@ -37,8 +37,6 @@ abstract class AbstractProxy
             if (count($parameters) > 0) {
                 return new static($parameters[0]);
             }
-
-            throw new LogicException("with needs parameters");
         }
 
         $instance = new static();

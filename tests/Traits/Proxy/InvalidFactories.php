@@ -1,6 +1,6 @@
 <?php
 
-namespace Formativ\Query\Tests\Traits;
+namespace Formativ\Query\Tests\Traits\Proxy;
 
 use LogicException;
 use Mockery;
@@ -10,21 +10,19 @@ trait InvalidFactories
 {
     /**
      * @param string $class
-     * @param string $externalMethod
-     * @param string $internalMethod
+     * @param string $method
      *
      * @return void
      */
-    protected function assertInvalidFactories($class, $externalMethod, $internalMethod)
+    protected function assertInvalidFactories($class, $method)
     {
         $this->setExpectedException(LogicException::class);
 
         $factory = Mockery::mock(Factory::class);
         $factory->shouldReceive("newInstance")->andReturn($factory);
-        $factory->shouldReceive($internalMethod);
 
         $instance = forward_static_call([$class, "with"], $factory);
 
-        $this->assertEquals("mocked", $instance->$externalMethod());
+        $this->assertEquals("mocked", $instance->$method());
     }
 }

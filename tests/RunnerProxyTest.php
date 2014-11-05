@@ -3,18 +3,21 @@
 namespace Formativ\Query\Tests;
 
 use Formativ\Query\Builder\Builder;
-use Formativ\Query\BuilderProxy;
-use Formativ\Query\Factory;
 use Formativ\Query\Factory\RunnerFactory;
 use Formativ\Query\Runner\Runner;
 use Formativ\Query\RunnerProxy;
-use LogicException;
 use Mockery;
 
 class RunnerProxyTest extends TestCase
 {
-    use Traits\InvalidFactories;
-    
+    use Traits\Proxy\CustomFactories;
+    use Traits\Proxy\DefaultFactories;
+    use Traits\Proxy\DelegatesMethods;
+    use Traits\Proxy\InvalidFactories;
+    use Traits\Proxy\MissingArguments;
+    use Traits\Proxy\MissingMethods;
+    use Traits\Proxy\MissingStaticMethods;
+
     /**
      * @test
      *
@@ -22,9 +25,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itCreatesDefaultFactory()
     {
-        $runner = new RunnerProxy();
-
-        $this->assertInstanceOf(RunnerFactory::class, $this->getProtected($runner, "factory"));
+        $this->assertCustomFactories(RunnerFactory::class, RunnerProxy::class);
     }
 
     /**
@@ -34,17 +35,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itAllowsCustomFactories()
     {
-        $runner = Mockery::mock(Runner::class);
-        $runner->shouldReceive("run")->andReturn("mocked");
-
-        $factory = Mockery::mock(Factory::class);
-        $factory->shouldReceive("newInstance")->andReturn($runner);
-
-        $builder = Mockery::mock(Builder::class);
-
-        $runner = RunnerProxy::with($factory);
-
-        $this->assertEquals("mocked", $runner->run($builder));
+        $this->assertCustomFactories(RunnerFactory::class, RunnerProxy::class);
     }
 
     /**
@@ -54,9 +45,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForMissingStaticMethods()
     {
-        $this->setExpectedException(LogicException::class);
-
-        BuilderProxy::foo();
+        $this->assertMissingStaticMethods(RunnerProxy::class);
     }
 
     /**
@@ -66,11 +55,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForMissingMethods()
     {
-        $this->setExpectedException(LogicException::class);
-
-        $proxy = new BuilderProxy();
-
-        $proxy->foo();
+        $this->assertMissingMethods(RunnerProxy::class);
     }
 
     /**
@@ -80,9 +65,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForMissingArguments()
     {
-        $this->setExpectedException(LogicException::class);
-
-        BuilderProxy::with();
+        $this->assertMissingArguments(RunnerProxy::class);
     }
 
     /**
@@ -92,6 +75,18 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->assertInvalidFactories(RunnerProxy::class, "run", "run");
+        $this->assertInvalidFactories(RunnerProxy::class, "run");
+    }
+
+    /**
+     * @test
+     *
+     * @return void
+     */
+    public function itDelegatesMethods()
+    {
+        $builder = Mockery::mock(Builder::class);
+
+        $this->assertDelegatesMethods(RunnerFactory::class, Runner::class, "run", RunnerProxy::class, "run", [$builder]);
     }
 }
