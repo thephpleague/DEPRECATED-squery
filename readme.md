@@ -16,7 +16,9 @@ Simple usage:
 use Formativ\Query\BuilderProxy;
 use Formativ\Query\RunnerProxy;
 
-$builder = BuilderProxy::select("*")->from("processes")->limit(5);
+$builder = BuilderProxy::select("*")
+    ->from("processes")
+    ->limit(5);
 
 RunnerProxy::run($builder, function(array $data) {
     // use $data
@@ -41,7 +43,10 @@ class CustomBuilderFactory extends BuilderFactory
     }
 }
 
-$builder = BuilderProxy::with(new CustomBuilderFactory())->select("*")->from("processes")->limit(5);
+$builder = BuilderProxy::with(new CustomBuilderFactory())
+    ->select("*")
+    ->from("processes")
+    ->limit(5);
 
 class CustomRunnerFactory extends RunnerFactory
 {
@@ -51,11 +56,12 @@ class CustomRunnerFactory extends RunnerFactory
     }
 }
 
-RunnerProxy::with(new CustomRunnerFactory())->run($builder, function(array $data) {
-    // use $data
-}, function($error) {
-    // log $error
-});
+RunnerProxy::with(new CustomRunnerFactory())
+    ->run($builder, function(array $data) {
+        // use $data
+    }, function($error) {
+        // log $error
+    });
 ```
 
 - `BuilderProxy::with()` and `BuilderProxy::select()` create new instances of `BuilderProxy`.
