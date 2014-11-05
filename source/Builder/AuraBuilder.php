@@ -29,6 +29,14 @@ class AuraBuilder implements Builder
     }
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->toString();
+    }
+
+    /**
      * @param string $table
      *
      * @return $this
@@ -41,13 +49,17 @@ class AuraBuilder implements Builder
     }
 
     /**
-     * @param Builder $builder
-     * @param mixed   $alias
+     * @param Builder     $builder
+     * @param string|null $alias
      *
      * @return $this
      */
     public function fromSelect(Builder $builder, $alias = null)
     {
+        if ($alias === null) {
+            $alias = md5(serialize($builder));
+        }
+
         $this->provider->fromSubSelect($builder->toString(), $alias);
 
         return $this;
@@ -61,7 +73,11 @@ class AuraBuilder implements Builder
      */
     public function where($clause, $binding = null)
     {
-        $this->provider->where($clause, $binding);
+        if ($binding === null) {
+            $this->provider->where($clause);
+        } else {
+            $this->provider->where($clause, $binding);
+        }
 
         return $this;
     }
@@ -74,7 +90,11 @@ class AuraBuilder implements Builder
      */
     public function orWhere($clause, $binding = null)
     {
-        $this->provider->orWhere($clause, $binding);
+        if ($binding === null) {
+            $this->provider->orWhere($clause);
+        } else {
+            $this->provider->orWhere($clause, $binding);
+        }
 
         return $this;
     }
@@ -103,7 +123,11 @@ class AuraBuilder implements Builder
      */
     public function having($clause, $binding = null)
     {
-        $this->provider->having($clause, $binding);
+        if ($binding === null) {
+            $this->provider->having($clause);
+        } else {
+            $this->provider->having($clause, $binding);
+        }
 
         return $this;
     }
@@ -116,7 +140,11 @@ class AuraBuilder implements Builder
      */
     public function orHaving($clause, $binding = null)
     {
-        $this->provider->orHaving($clause, $binding);
+        if ($binding === null) {
+            $this->provider->orHaving($clause);
+        } else {
+            $this->provider->orHaving($clause, $binding);
+        }
 
         return $this;
     }
@@ -180,6 +208,16 @@ class AuraBuilder implements Builder
         }
 
         return $this;
+    }
+
+    /**
+     * @param string $columns
+     *
+     * @return $this
+     */
+    public function select($columns = "*")
+    {
+        return $this->columns($columns);
     }
 
     /**

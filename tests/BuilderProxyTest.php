@@ -72,6 +72,6 @@ class BuilderProxyTest extends TestCase
      */
     public function itDelegatesMethods()
     {
-        $this->assertDelegatesMethods(BuilderFactory::class, Builder::class, "columns", BuilderProxy::class, "select");
+        $this->assertDelegatesMethods(BuilderFactory::class, Builder::class, "select", BuilderProxy::class, "select");
     }
 }

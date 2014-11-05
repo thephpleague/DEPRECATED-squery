@@ -10,6 +10,18 @@ interface Builder
     public function toString();
 
     /**
+     * @return string
+     */
+    public function __toString();
+
+    /**
+     * @param string $columns
+     *
+     * @return $this
+     */
+    public function select($columns = "*");
+
+    /**
      * @param string $columns
      *
      * @return $this

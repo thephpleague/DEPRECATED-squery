@@ -49,6 +49,6 @@ class BuilderProxy extends AbstractProxy
 
         $this->throwIfUnacceptable($builder, Builder::class);
 
-        return call_user_func_array([$builder, "columns"], $parameters);
+        return call_user_func_array([$builder, "select"], $parameters);
     }
 }
