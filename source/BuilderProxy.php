@@ -11,7 +11,7 @@ class BuilderProxy extends AbstractProxy
     use Traits\Unacceptable;
 
     /**
-     * @var Factory
+     * @var Factory|BuilderFactory
      */
     protected $factory;
 

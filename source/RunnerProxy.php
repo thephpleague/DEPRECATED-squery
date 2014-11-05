@@ -11,7 +11,7 @@ class RunnerProxy extends AbstractProxy
     use Traits\Unacceptable;
 
     /**
-     * @var Factory
+     * @var Factory|RunnerFactory
      */
     protected $factory;
 
