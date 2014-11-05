@@ -12,7 +12,6 @@ class BuilderProxyTest extends TestCase
     use Traits\Proxy\DefaultFactories;
     use Traits\Proxy\DelegatesMethods;
     use Traits\Proxy\InvalidFactories;
-    use Traits\Proxy\MissingArguments;
     use Traits\Proxy\MissingMethods;
     use Traits\Proxy\MissingStaticMethods;
 
@@ -54,16 +53,6 @@ class BuilderProxyTest extends TestCase
     public function itThrowsForMissingMethods()
     {
         $this->assertMissingMethods(BuilderProxy::class);
-    }
-
-    /**
-     * @test
-     *
-     * @return void
-     */
-    public function itThrowsForMissingArguments()
-    {
-        $this->assertMissingArguments(BuilderProxy::class);
     }
 
     /**
