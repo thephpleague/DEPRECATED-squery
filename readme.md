@@ -10,6 +10,8 @@ A PHP wrapper for [OSQuery](http://osquery.io).
 
 ## Example
 
+Simple usage:
+
 ```php
 use Formativ\Query\BuilderProxy;
 use Formativ\Query\RunnerProxy;
@@ -22,6 +24,8 @@ RunnerProxy::run($builder, function(array $data) {
     // log $error
 });
 ```
+
+Custom factories:
 
 ```php
 use Formativ\Query\BuilderProxy;
@@ -54,27 +58,10 @@ RunnerProxy::with(new CustomRunnerFactory())->run($builder, function(array $data
 });
 ```
 
-```php
-use Aura\SqlQuery\Quoter;
-use Aura\SqlQuery\Sqlite\Select;
-use Formativ\Query\Builder\AuraBuilder;
-use Formativ\Query\Factory\ProcessFactory;
-use Formativ\Query\Runner\ProcessRunner;
-
-$builder = new AuraBuilder(new Select(new Quoter('"', '"')));
-
-class CustomProcessFactory extends ProcessFactory
-{
-    public function newInstance()
-    {
-        // ...
-    }
-}
-
-$runner = new ProcessRunner(new CustomProcessFactory());
-
-$runner->run($builder);
-```
+- `BuilderProxy::with()` and `BuilderProxy::select()` create new instances of `BuilderProxy`.
+- `BuilderProxy::with($factory)` is the same as `new BuilderProxy($factory)`
+- `RunnerProxy::with()` and `RunnerProxy::run()` create new instances of `RunnerProxy`.
+- `RunnerProxy::with($factory)` is the same as `new RunnerProxy($factory)`
 
 ## Installation
 
