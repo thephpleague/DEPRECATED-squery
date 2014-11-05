@@ -32,17 +32,30 @@ class SymfonyProcess implements Process
         $this->provider->setCommandLine($command);
 
         $this->provider->run(function ($type, $buffer) use ($onData, $onError) {
-            if ($type === "err") {
-                if ($onError !== null) {
-                    $onError($buffer);
-                }
-            } else {
-                if ($onData !== null) {
-                    $onData($buffer);
-                }
-            }
+            $this->processResponse($type, $buffer, $onData, $onError);
         });
 
         return $this;
+    }
+
+    /**
+     * @param string        $type
+     * @param string        $buffer
+     * @param null|callable $onData
+     * @param null|callable $onError
+     *
+     * @return void
+     */
+    protected function processResponse($type, $buffer, callable $onData = null, callable $onError = null)
+    {
+        if ($type === "err") {
+            if ($onError !== null) {
+                $onError($buffer);
+            }
+        } else {
+            if ($onData !== null) {
+                $onData($buffer);
+            }
+        }
     }
 }

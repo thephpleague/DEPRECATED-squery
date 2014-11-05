@@ -78,8 +78,8 @@ class AuraBuilderTest extends TestCase
     public function itGeneratesStrings()
     {
         $select = $this->createNewSelect();
-        $select->shouldReceive("__toString")->andReturn("mocked");
         $select->shouldReceive("toString")->andReturn("mocked");
+        $select->shouldReceive("__toString")->andReturn("mocked");
 
         $builder = new AuraBuilder($select);
 
