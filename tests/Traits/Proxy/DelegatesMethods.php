@@ -28,4 +28,17 @@ trait DelegatesMethods
 
         $this->assertEquals("mocked", call_user_func_array([$proxy, $proxyMethod], $proxyParameters));
     }
+
+    /**
+     * @param mixed  $expected
+     * @param mixed  $actual
+     * @param string $message
+     * @param int    $delta
+     * @param int    $maxDepth
+     * @param bool   $canonicalize
+     * @param bool   $ignoreCase
+     *
+     * @return void
+     */
+    abstract protected function assertEquals($expected, $actual, $message = "", $delta = 0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false);
 }

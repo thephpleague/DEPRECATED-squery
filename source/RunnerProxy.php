@@ -16,7 +16,7 @@ class RunnerProxy extends AbstractProxy
     protected $factory;
 
     /**
-     * @param mixed $factory
+     * @param Factory|RunnerFactory $factory
      */
     public function __construct(Factory $factory = null)
     {

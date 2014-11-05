@@ -18,4 +18,21 @@ trait DefaultFactories
 
         $this->assertInstanceOf($factoryClass, $this->getProtected($proxy, "factory"));
     }
+
+    /**
+     * @param string $class
+     * @param mixed  $actual
+     * @param string $message
+     *
+     * @return void
+     */
+    abstract protected function assertInstanceOf($class, $actual, $message = "");
+
+    /**
+     * @param mixed  $object
+     * @param string $property
+     *
+     * @return mixed
+     */
+    abstract protected function getProtected($object, $property);
 }

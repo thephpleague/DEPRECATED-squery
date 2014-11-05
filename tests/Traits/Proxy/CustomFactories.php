@@ -20,4 +20,21 @@ trait CustomFactories
 
         $this->assertSame($factory, $this->getProtected($proxy, "factory"));
     }
+
+    /**
+     * @param mixed  $expected
+     * @param mixed  $actual
+     * @param string $message
+     *
+     * @return void
+     */
+    abstract protected function assertSame($expected, $actual, $message = "");
+
+    /**
+     * @param mixed  $object
+     * @param string $property
+     *
+     * @return mixed
+     */
+    abstract protected function getProtected($object, $property);
 }

@@ -48,7 +48,7 @@ class AuraBuilder implements Builder
      */
     public function fromSelect(Builder $builder, $alias = null)
     {
-        $this->provider->fromSubSelect($builder, $alias);
+        $this->provider->fromSubSelect($builder->toString(), $alias);
 
         return $this;
     }

@@ -16,7 +16,7 @@ class BuilderProxy extends AbstractProxy
     protected $factory;
 
     /**
-     * @param mixed $factory
+     * @param Factory|ProcessFactory $factory
      */
     public function __construct(Factory $factory = null)
     {

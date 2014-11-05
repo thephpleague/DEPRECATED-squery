@@ -18,4 +18,13 @@ trait MissingStaticMethods
 
         forward_static_call([$class, "foo"]);
     }
+
+    /**
+     * @param string $class
+     * @param string $message
+     * @param int    $code
+     *
+     * @return void
+     */
+    abstract protected function setExpectedException($class, $message = '', $code = null);
 }
