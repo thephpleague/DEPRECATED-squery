@@ -2,9 +2,9 @@
 
 namespace League\Squery\Tests\Traits\Proxy;
 
+use League\Squery\Factory;
 use LogicException;
 use Mockery;
-use League\Squery\Factory;
 
 trait InvalidFactories
 {

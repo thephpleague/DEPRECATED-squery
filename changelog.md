@@ -29,3 +29,4 @@ Basically, everything changed!
 WIP
 
 - Renamed Formativ\Query to League\Squery
+- Added documentation

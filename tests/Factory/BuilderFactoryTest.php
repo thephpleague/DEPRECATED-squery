@@ -2,8 +2,8 @@
 
 namespace League\Squery\Tests\Factory;
 
-use League\Squery\Factory\BuilderFactory;
 use League\Squery\Builder\Builder;
+use League\Squery\Factory\BuilderFactory;
 use League\Squery\Tests\TestCase;
 use Mockery;
 

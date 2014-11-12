@@ -68,7 +68,7 @@ class ProcessRunner implements Runner
      *
      * @return $this
      */
-    public function runCommand($command, callable $onData = null, callable $onError = null)
+    protected function runCommand($command, callable $onData = null, callable $onError = null)
     {
         $instance = $this->factory->newInstance();
 

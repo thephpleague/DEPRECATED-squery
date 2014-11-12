@@ -6,7 +6,7 @@
 ![Version](http://img.shields.io/packagist/v/league/squery.svg?style=flat-square)
 ![License](http://img.shields.io/packagist/l/league/squery.svg?style=flat-square)
 
-A PHP wrapper for [OSQuery](http://osquery.io).
+PHP wrapper for [osquery](http://osquery.io).
 
 ## Example
 
@@ -20,64 +20,30 @@ $builder = BuilderProxy::select("*")
     ->from("processes")
     ->limit(5);
 
-RunnerProxy::run($builder, function(array $data) {
-    // use $data
+RunnerProxy::run($builder, function(array $rows) {
+    $headings = array_shift($rows);
+
+    foreach ($rows as $row) {
+        foreach ($row as $i => $column) {
+            print $headings[$i] . ": " . $column . "\n";
+        }
+    }
 }, function($error) {
-    // log $error
+    print "error: " . $error . "\n";
 });
 ```
 
-Custom factories:
-
-```php
-use League\Squery\BuilderProxy;
-use League\Squery\Factory\BuilderFactory;
-use League\Squery\Factory\RunnerFactory;
-use League\Squery\RunnerProxy;
-
-class CustomBuilderFactory extends BuilderFactory
-{
-    public function newInstance()
-    {
-        // ...
-    }
-}
-
-$builder = BuilderProxy::with(new CustomBuilderFactory())
-    ->select("*")
-    ->from("processes")
-    ->limit(5);
-
-class CustomRunnerFactory extends RunnerFactory
-{
-    public function newInstance()
-    {
-        // ...
-    }
-}
-
-RunnerProxy::with(new CustomRunnerFactory())
-    ->run($builder, function(array $data) {
-        // use $data
-    }, function($error) {
-        // log $error
-    });
-```
-
-- `BuilderProxy::with()` and `BuilderProxy::select()` create new instances of `BuilderProxy`.
-- `BuilderProxy::with($factory)` is the same as `new BuilderProxy($factory)`
-- `RunnerProxy::with()` and `RunnerProxy::run()` create new instances of `RunnerProxy`.
-- `RunnerProxy::with($factory)` is the same as `new RunnerProxy($factory)`
+More at [squery.thephpleague.com](http://squery.thephpleague.com/examples).
 
 ## Installation
 
 ```sh
-❯ composer require "league/squery:*"
+❯ composer require "league/squery:~2.0.0"
 ```
 
 ## Testing
 
 ```sh
-❯ composer create-project "league/squery:*" .
+❯ composer create-project "league/squery:~2.0.0" .
 ❯ vendor/bin/phpunit
 ```
