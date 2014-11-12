@@ -1,4 +1,4 @@
-# Squery
+# League\Squery
 
 ![Build Status](http://img.shields.io/travis/league/squery.svg?style=flat-square)
 ![Code Quality](http://img.shields.io/scrutinizer/g/league/squery.svg?style=flat-square)
