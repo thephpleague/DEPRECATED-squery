@@ -1,10 +1,10 @@
-# Query
+# Squery
 
-![Build Status](http://img.shields.io/travis/formativ/query.svg?style=flat-square)
-![Code Quality](http://img.shields.io/scrutinizer/g/formativ/query.svg?style=flat-square)
-![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/formativ/query.svg?style=flat-square)
-![Version](http://img.shields.io/packagist/v/formativ/query.svg?style=flat-square)
-![License](http://img.shields.io/packagist/l/formativ/query.svg?style=flat-square)
+![Build Status](http://img.shields.io/travis/league/squery.svg?style=flat-square)
+![Code Quality](http://img.shields.io/scrutinizer/g/league/squery.svg?style=flat-square)
+![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/league/squery.svg?style=flat-square)
+![Version](http://img.shields.io/packagist/v/league/squery.svg?style=flat-square)
+![License](http://img.shields.io/packagist/l/league/squery.svg?style=flat-square)
 
 A PHP wrapper for [OSQuery](http://osquery.io).
 
@@ -13,8 +13,8 @@ A PHP wrapper for [OSQuery](http://osquery.io).
 Simple usage:
 
 ```php
-use Formativ\Query\BuilderProxy;
-use Formativ\Query\RunnerProxy;
+use League\Squery\BuilderProxy;
+use League\Squery\RunnerProxy;
 
 $builder = BuilderProxy::select("*")
     ->from("processes")
@@ -30,10 +30,10 @@ RunnerProxy::run($builder, function(array $data) {
 Custom factories:
 
 ```php
-use Formativ\Query\BuilderProxy;
-use Formativ\Query\Factory\BuilderFactory;
-use Formativ\Query\Factory\RunnerFactory;
-use Formativ\Query\RunnerProxy;
+use League\Squery\BuilderProxy;
+use League\Squery\Factory\BuilderFactory;
+use League\Squery\Factory\RunnerFactory;
+use League\Squery\RunnerProxy;
 
 class CustomBuilderFactory extends BuilderFactory
 {
@@ -72,12 +72,12 @@ RunnerProxy::with(new CustomRunnerFactory())
 ## Installation
 
 ```sh
-❯ composer require "formativ/query:*"
+❯ composer require "league/squery:*"
 ```
 
 ## Testing
 
 ```sh
-❯ composer create-project "formativ/query:*" .
+❯ composer create-project "league/squery:*" .
 ❯ vendor/bin/phpunit
 ```

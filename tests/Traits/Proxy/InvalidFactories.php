@@ -1,10 +1,10 @@
 <?php
 
-namespace Formativ\Query\Tests\Traits\Proxy;
+namespace League\Squery\Tests\Traits\Proxy;
 
 use LogicException;
 use Mockery;
-use Formativ\Query\Factory;
+use League\Squery\Factory;
 
 trait InvalidFactories
 {

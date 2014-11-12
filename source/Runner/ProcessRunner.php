@@ -1,12 +1,12 @@
 <?php
 
-namespace Formativ\Query\Runner;
+namespace League\Squery\Runner;
 
-use Formativ\Query\Builder\Builder;
-use Formativ\Query\Factory;
-use Formativ\Query\Factory\ProcessFactory;
-use Formativ\Query\Process\Process;
-use Formativ\Query\Traits;
+use League\Squery\Builder\Builder;
+use League\Squery\Factory;
+use League\Squery\Factory\ProcessFactory;
+use League\Squery\Process\Process;
+use League\Squery\Traits;
 
 class ProcessRunner implements Runner
 {

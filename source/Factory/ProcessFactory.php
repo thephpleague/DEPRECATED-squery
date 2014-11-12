@@ -1,9 +1,9 @@
 <?php
 
-namespace Formativ\Query\Factory;
+namespace League\Squery\Factory;
 
-use Formativ\Query\Factory;
-use Formativ\Query\Process\SymfonyProcess;
+use League\Squery\Factory;
+use League\Squery\Process\SymfonyProcess;
 use Symfony\Component\Process\Process;
 
 class ProcessFactory implements Factory

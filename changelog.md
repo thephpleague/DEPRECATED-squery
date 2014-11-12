@@ -23,3 +23,9 @@ First release.
 - Major changes to Formativ\Query\Runner\ProcessRunner
 
 Basically, everything changed!
+
+## 2.0.0
+
+WIP
+
+- Renamed Formativ\Query to League\Squery

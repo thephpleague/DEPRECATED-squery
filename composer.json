@@ -1,5 +1,5 @@
 {
-    "name": "formativ/query",
+    "name": "league/squery",
     "description": "A PHP wrapper for OSQuery.",
     "license": "MIT",
     "authors": [
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Formativ\\Query\\": "source"
+            "League\\Squery\\": "source"
         }
     },
     "require-dev": {
@@ -28,7 +28,7 @@
             "tests/TestCase.php"
         ],
         "psr-4": {
-            "Formativ\\Query\\Tests\\": "tests"
+            "League\\Squery\\Tests\\": "tests"
         }
     }
 }

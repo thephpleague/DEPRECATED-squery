@@ -1,6 +1,6 @@
 <?php
 
-namespace Formativ\Query\Builder;
+namespace League\Squery\Builder;
 
 interface Builder
 {

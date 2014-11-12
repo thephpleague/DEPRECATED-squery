@@ -1,10 +1,10 @@
 <?php
 
-namespace Formativ\Query\Tests\Factory;
+namespace League\Squery\Tests\Factory;
 
-use Formativ\Query\Factory\ProcessFactory;
-use Formativ\Query\Process\Process;
-use Formativ\Query\Tests\TestCase;
+use League\Squery\Factory\ProcessFactory;
+use League\Squery\Process\Process;
+use League\Squery\Tests\TestCase;
 use Mockery;
 
 class ProcessFactoryTest extends TestCase

@@ -1,11 +1,11 @@
 <?php
 
-namespace Formativ\Query\Factory;
+namespace League\Squery\Factory;
 
 use Aura\SqlQuery\Quoter;
 use Aura\SqlQuery\Sqlite\Select;
-use Formativ\Query\Builder\AuraBuilder;
-use Formativ\Query\Factory;
+use League\Squery\Builder\AuraBuilder;
+use League\Squery\Factory;
 
 class BuilderFactory implements Factory
 {

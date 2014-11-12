@@ -1,6 +1,6 @@
 <?php
 
-namespace Formativ\Query;
+namespace League\Squery;
 
 use LogicException;
 use ReflectionClass;

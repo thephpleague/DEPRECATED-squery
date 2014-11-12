@@ -1,10 +1,10 @@
 <?php
 
-namespace Formativ\Query\Tests;
+namespace League\Squery\Tests;
 
-use Formativ\Query\Builder\Builder;
-use Formativ\Query\BuilderProxy;
-use Formativ\Query\Factory\BuilderFactory;
+use League\Squery\Builder\Builder;
+use League\Squery\BuilderProxy;
+use League\Squery\Factory\BuilderFactory;
 
 class BuilderProxyTest extends TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Formativ\Query\Tests\Factory;
+namespace League\Squery\Tests\Factory;
 
-use Formativ\Query\Factory\BuilderFactory;
-use Formativ\Query\Builder\Builder;
-use Formativ\Query\Tests\TestCase;
+use League\Squery\Factory\BuilderFactory;
+use League\Squery\Builder\Builder;
+use League\Squery\Tests\TestCase;
 use Mockery;
 
 class BuilderFactoryTest extends TestCase

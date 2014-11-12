@@ -1,6 +1,6 @@
 <?php
 
-namespace Formativ\Query\Tests;
+namespace League\Squery\Tests;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;

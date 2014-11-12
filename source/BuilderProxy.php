@@ -1,10 +1,10 @@
 <?php
 
-namespace Formativ\Query;
+namespace League\Squery;
 
-use Formativ\Query\Builder\Builder;
-use Formativ\Query\Factory;
-use Formativ\Query\Factory\BuilderFactory;
+use League\Squery\Builder\Builder;
+use League\Squery\Factory;
+use League\Squery\Factory\BuilderFactory;
 
 class BuilderProxy extends AbstractProxy
 {

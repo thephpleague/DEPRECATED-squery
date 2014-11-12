@@ -1,6 +1,6 @@
 <?php
 
-namespace Formativ\Query\Process;
+namespace League\Squery\Process;
 
 use Symfony\Component\Process\Process as Provider;
 

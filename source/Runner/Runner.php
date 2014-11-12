@@ -1,8 +1,8 @@
 <?php
 
-namespace Formativ\Query\Runner;
+namespace League\Squery\Runner;
 
-use Formativ\Query\Builder\Builder;
+use League\Squery\Builder\Builder;
 
 interface Runner
 {

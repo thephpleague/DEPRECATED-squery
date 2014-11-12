@@ -1,6 +1,6 @@
 <?php
 
-namespace Formativ\Query\Builder;
+namespace League\Squery\Builder;
 
 use Aura\SqlQuery\Sqlite\Select as Provider;
 

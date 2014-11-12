@@ -1,11 +1,11 @@
 <?php
 
-namespace Formativ\Query\Tests;
+namespace League\Squery\Tests;
 
-use Formativ\Query\Builder\Builder;
-use Formativ\Query\Factory\RunnerFactory;
-use Formativ\Query\Runner\Runner;
-use Formativ\Query\RunnerProxy;
+use League\Squery\Builder\Builder;
+use League\Squery\Factory\RunnerFactory;
+use League\Squery\Runner\Runner;
+use League\Squery\RunnerProxy;
 use Mockery;
 
 class RunnerProxyTest extends TestCase

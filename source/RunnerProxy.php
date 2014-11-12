@@ -1,10 +1,10 @@
 <?php
 
-namespace Formativ\Query;
+namespace League\Squery;
 
-use Formativ\Query\Factory;
-use Formativ\Query\Factory\RunnerFactory;
-use Formativ\Query\Runner\Runner;
+use League\Squery\Factory;
+use League\Squery\Factory\RunnerFactory;
+use League\Squery\Runner\Runner;
 
 class RunnerProxy extends AbstractProxy
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Formativ\Query\Tests\Process;
+namespace League\Squery\Tests\Process;
 
-use Formativ\Query\Process\SymfonyProcess;
-use Formativ\Query\Tests\TestCase;
+use League\Squery\Process\SymfonyProcess;
+use League\Squery\Tests\TestCase;
 use Mockery;
 use ReflectionClass;
 use Symfony\Component\Process\Process;

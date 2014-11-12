@@ -1,6 +1,6 @@
 <?php
 
-namespace Formativ\Query\Traits;
+namespace League\Squery\Traits;
 
 use LogicException;
 
