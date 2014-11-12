@@ -2,7 +2,6 @@
 
 namespace League\Squery;
 
-use League\Squery\Factory;
 use League\Squery\Factory\RunnerFactory;
 use League\Squery\Runner\Runner;
 

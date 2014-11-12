@@ -6,7 +6,6 @@ use Symfony\Component\Process\Process as Provider;
 
 class SymfonyProcess implements Process
 {
-
     /**
      * @var Provider
      */

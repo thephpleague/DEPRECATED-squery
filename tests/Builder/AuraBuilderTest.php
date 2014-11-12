@@ -33,7 +33,7 @@ class AuraBuilderTest extends TestCase
             ["limit", [1], "limit", [1]],
             ["offset", [2], "offset", [2]],
             ["binding", ["foo", "bar"], "bindValue", ["foo", "bar"]],
-            ["binding", [["foo" => "bar"]], "bindValue", ["foo", "bar"]]
+            ["binding", [["foo" => "bar"]], "bindValue", ["foo", "bar"]],
         ];
 
         $mock = Mockery::mock(AuraBuilder::class);

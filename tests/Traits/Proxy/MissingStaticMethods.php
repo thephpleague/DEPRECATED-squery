@@ -3,7 +3,6 @@
 namespace League\Squery\Tests\Traits\Proxy;
 
 use LogicException;
-use Mockery;
 
 trait MissingStaticMethods
 {

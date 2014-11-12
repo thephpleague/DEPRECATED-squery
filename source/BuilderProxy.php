@@ -3,7 +3,6 @@
 namespace League\Squery;
 
 use League\Squery\Builder\Builder;
-use League\Squery\Factory;
 use League\Squery\Factory\BuilderFactory;
 
 class BuilderProxy extends AbstractProxy

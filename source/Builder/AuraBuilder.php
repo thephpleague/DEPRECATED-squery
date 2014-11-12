@@ -6,7 +6,6 @@ use Aura\SqlQuery\Sqlite\Select as Provider;
 
 class AuraBuilder implements Builder
 {
-
     /**
      * @var Provider
      */

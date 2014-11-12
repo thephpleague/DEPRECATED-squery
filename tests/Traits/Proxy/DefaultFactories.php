@@ -2,8 +2,6 @@
 
 namespace League\Squery\Tests\Traits\Proxy;
 
-use Mockery;
-
 trait DefaultFactories
 {
     /**
