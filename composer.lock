@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4de61eae5807baab05ae08dbea22adec",
+    "hash": "e40e3b93efcddf9ce90a378e0e686084",
     "packages": [
         {
             "name": "aura/sqlquery",
