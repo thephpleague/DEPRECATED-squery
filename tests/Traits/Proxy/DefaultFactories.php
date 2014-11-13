@@ -14,7 +14,7 @@ trait DefaultFactories
     {
         $proxy = new $proxyClass();
 
-        $this->assertInstanceOf($factoryClass, $this->getProtected($proxy, "factory"));
+        $this->assertInstanceOf($factoryClass, $this->getProtectedProperty($proxy, "factory"));
     }
 
     /**
@@ -32,5 +32,5 @@ trait DefaultFactories
      *
      * @return mixed
      */
-    abstract protected function getProtected($object, $property);
+    abstract protected function getProtectedProperty($object, $property);
 }

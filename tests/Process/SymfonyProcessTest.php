@@ -5,7 +5,6 @@ namespace League\Squery\Tests\Process;
 use League\Squery\Process\SymfonyProcess;
 use League\Squery\Tests\TestCase;
 use Mockery;
-use ReflectionClass;
 use Symfony\Component\Process\Process;
 
 class SymfonyProcessTest extends TestCase
@@ -15,34 +14,79 @@ class SymfonyProcessTest extends TestCase
      *
      * @return void
      */
-    public function itProcessesResponses()
+    public function itRunsCommands()
     {
-        $response = null;
-
-        $onData = function () use (&$response) {
-            $response = "data";
-        };
-
-        $onError = function () use (&$response) {
-            $response = "error";
-        };
-
-        $provider = Mockery::mock(Process::class);
-        $provider->shouldReceive("stop");
+        $provider = $this->getNewProcessMock();
 
         $process = new SymfonyProcess($provider);
 
-        $reflection = new ReflectionClass($process);
+        $this->assertOkCallback($provider, $process);
 
-        $method = $reflection->getMethod("processResponse");
-        $method->setAccessible(true);
+        $this->assertErrorCallback($provider, $process);
+    }
 
-        $method->invoke($process, "err", "foo", $onData, $onError);
+    /**
+     * @return Process
+     */
+    protected function getNewProcessMock()
+    {
+        $provider = Mockery::mock(Process::class);
 
-        $this->assertEquals("error", $response);
+        $provider->shouldReceive("setCommandLine");
+        $provider->shouldReceive("stop");
 
-        $method->invoke($process, "ok", "foo", $onData, $onError);
+        return $provider;
+    }
 
-        $this->assertEquals("data", $response);
+    /**
+     * @param Process        $provider
+     * @param SymfonyProcess $process
+     *
+     * @return void
+     */
+    protected function assertOkCallback($provider, $process)
+    {
+        $provider->shouldReceive("run")
+            ->once()
+            ->with(
+                Mockery::on(function ($callback) {
+                    $callback("ok", "mocked ok");
+                    return true;
+                })
+            );
+
+        $response = null;
+
+        $process->run("foo", function ($buffer) use (&$response) {
+            $response = $buffer;
+        });
+
+        $this->assertEquals("mocked ok", $response);
+    }
+
+    /**
+     * @param Process        $provider
+     * @param SymfonyProcess $process
+     *
+     * @return void
+     */
+    protected function assertErrorCallback($provider, $process)
+    {
+        $provider->shouldReceive("run")
+            ->once()
+            ->with(
+                Mockery::on(function ($callback) {
+                    $callback("err", "mocked error");
+                    return true;
+                })
+            );
+
+        $response = null;
+
+        $process->run("foo", null, function ($error) use (&$response) {
+            $response = $error;
+        });
+
+        $this->assertEquals("mocked error", $response);
     }
 }

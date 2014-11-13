@@ -22,17 +22,9 @@ class AuraBuilder implements Builder
     /**
      * @return string
      */
-    public function toString()
-    {
-        return (string) $this->provider;
-    }
-
-    /**
-     * @return string
-     */
     public function __toString()
     {
-        return $this->toString();
+        return preg_replace("#\\s+#", " ", $this->provider);
     }
 
     /**
@@ -59,7 +51,7 @@ class AuraBuilder implements Builder
             $alias = md5(serialize($builder));
         }
 
-        $this->provider->fromSubSelect($builder->toString(), $alias);
+        $this->provider->fromSubSelect((string) $builder, $alias);
 
         return $this;
     }

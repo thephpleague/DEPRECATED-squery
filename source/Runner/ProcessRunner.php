@@ -38,20 +38,10 @@ class ProcessRunner implements Runner
      */
     public function run(Builder $builder, callable $onData = null, callable $onError = null)
     {
-        $query = $builder->toString();
-        $query = str_replace("\n", " ", $query);
-
-        $mode     = ".mode csv";
-        $executor = "osqueryi";
-
-        $command = "echo '{$mode}\n{$query};' | {$executor}";
+        $command = $this->getCommandFromQuery($builder);
 
         $this->runCommand($command, function ($buffer) use ($onData) {
-            $data = array_map("str_getcsv", explode("\n", $buffer));
-
-            if (count($data[count($data) - 1]) === 1 and empty($data[count($data) - 1][0])) {
-                $data = array_slice($data, 0, count($data) - 1);
-            }
+            $data = $this->getRowsFromBuffer($buffer);
 
             if ($onData !== null) {
                 $onData($data);
@@ -59,6 +49,31 @@ class ProcessRunner implements Runner
         }, $onError);
 
         return $this;
+    }
+
+    /**
+     * @param Builder $builder
+     *
+     * @return string
+     */
+    protected function getCommandFromQuery(Builder $builder)
+    {
+        $query    = trim((string) $builder);
+        $replaced = preg_replace("#\\s+#", " ", $query);
+
+        return "echo '.mode csv\n{$replaced};' | osqueryi";
+    }
+
+    /**
+     * @param string $buffer
+     *
+     * @return array
+     */
+    protected function getRowsFromBuffer($buffer)
+    {
+        $lines = explode("\n", trim($buffer));
+
+        return array_map("str_getcsv", $lines);
     }
 
     /**

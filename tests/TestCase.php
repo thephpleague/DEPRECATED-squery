@@ -22,7 +22,7 @@ class TestCase extends PHPUnit_Framework_TestCase
      *
      * @return mixed
      */
-    protected function getProtected($object, $property)
+    protected function getProtectedProperty($object, $property)
     {
         $reflection = new ReflectionClass($object);
 

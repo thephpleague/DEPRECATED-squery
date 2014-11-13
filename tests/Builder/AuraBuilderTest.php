@@ -37,7 +37,9 @@ class AuraBuilderTest extends TestCase
         ];
 
         $mock = Mockery::mock(AuraBuilder::class);
-        $mock->shouldReceive("toString")->andReturn("mocked");
+
+        $mock->shouldReceive("__toString")
+            ->andReturn("mocked");
 
         $methods = array_merge($methods, [
             ["fromSelect", [$mock, "foo"], "fromSubSelect", ["mocked", "foo"]],
@@ -64,7 +66,8 @@ class AuraBuilderTest extends TestCase
         $select = Mockery::mock(Select::class);
 
         if ($method !== null) {
-            $select->shouldReceive($method)->withArgs($parameters);
+            $select->shouldReceive($method)
+                ->withArgs($parameters);
         }
 
         return $select;
@@ -78,12 +81,12 @@ class AuraBuilderTest extends TestCase
     public function itGeneratesStrings()
     {
         $select = $this->createNewSelect();
-        $select->shouldReceive("toString")->andReturn("mocked");
-        $select->shouldReceive("__toString")->andReturn("mocked");
+
+        $select->shouldReceive("__toString")
+            ->andReturn("mocked");
 
         $builder = new AuraBuilder($select);
 
-        $this->assertEquals("mocked", $builder->toString());
         $this->assertEquals("mocked", (string) $builder);
     }
 }

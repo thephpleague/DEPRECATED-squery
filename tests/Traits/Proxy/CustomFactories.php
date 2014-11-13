@@ -18,7 +18,7 @@ trait CustomFactories
 
         $proxy = forward_static_call([$proxyClass, "with"], $factory);
 
-        $this->assertSame($factory, $this->getProtected($proxy, "factory"));
+        $this->assertSame($factory, $this->getProtectedProperty($proxy, "factory"));
     }
 
     /**
@@ -36,5 +36,5 @@ trait CustomFactories
      *
      * @return mixed
      */
-    abstract protected function getProtected($object, $property);
+    abstract protected function getProtectedProperty($object, $property);
 }
