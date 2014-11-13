@@ -6,7 +6,7 @@ First release.
 
 ## 1.0.0
 
-- Added `Formativ\Query\Factory
+- Added `Formativ\Query\Factory`
 - Renamed `Formativ\Query\Builder` to `Formativ\Query\BuilderProxy`
 - Renamed `Formativ\Query\Runner` to `Formativ\Query\RunnerProxy`
 - Repurposed Formativ\Query\Factory\Factory
