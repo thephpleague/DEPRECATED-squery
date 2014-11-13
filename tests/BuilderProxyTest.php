@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Squery\Tests;
+namespace League\Squery\tests;
 
 use League\Squery\Builder\Builder;
 use League\Squery\BuilderProxy;

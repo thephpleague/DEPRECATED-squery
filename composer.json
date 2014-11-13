@@ -1,6 +1,6 @@
 {
     "name": "league/squery",
-    "description": "PHP wrapper for OSQuery.",
+    "description": "PHP wrapper for osquery",
     "license": "MIT",
     "authors": [
         {
