@@ -9,7 +9,7 @@ First release.
 - Added `Formativ\Query\Factory`
 - Renamed `Formativ\Query\Builder` to `Formativ\Query\BuilderProxy`
 - Renamed `Formativ\Query\Runner` to `Formativ\Query\RunnerProxy`
-- Repurposed Formativ\Query\Factory\Factory
+- Repurposed `Formativ\Query\Factory\Factory`
 - Added `Formativ\Query\Factory\BuilderFactory`
 - Added `Formativ\Query\Factory\ProcessFactory`
 - Added `Formativ\Query\Factory\RunnerFactory`
