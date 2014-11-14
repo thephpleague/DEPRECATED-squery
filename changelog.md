@@ -29,3 +29,7 @@ Basically, everything changed!
 - Renamed `Formativ\Query` to `League\Squery`
 - Removed public API for `League\Squery\Runner\Runner::runCommand()`
 - Added documentation
+
+## 2.1.0
+
+- Excluded `composer.lock` from the zip archive.
