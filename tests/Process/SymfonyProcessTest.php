@@ -51,6 +51,7 @@ class SymfonyProcessTest extends TestCase
             ->with(
                 Mockery::on(function ($callback) {
                     $callback("ok", "mocked ok");
+
                     return true;
                 })
             );
@@ -77,6 +78,7 @@ class SymfonyProcessTest extends TestCase
             ->with(
                 Mockery::on(function ($callback) {
                     $callback("err", "mocked error");
+
                     return true;
                 })
             );

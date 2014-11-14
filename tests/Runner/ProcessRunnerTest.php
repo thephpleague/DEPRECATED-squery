@@ -88,6 +88,7 @@ class ProcessRunnerTest extends TestCase
             ->once()
             ->with($command, Mockery::on(function ($callback) use ($buffer) {
                 $callback($buffer);
+
                 return true;
             }), null);
 
@@ -135,6 +136,7 @@ class ProcessRunnerTest extends TestCase
             ->once()
             ->with($command, null, Mockery::on(function ($callback) {
                 $callback("error");
+
                 return true;
             }));
 

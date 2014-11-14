@@ -3,7 +3,6 @@
 namespace League\Squery\Tests;
 
 use League\Squery\AbstractProxy;
-use Mockery;
 
 class ConcreteProxy extends AbstractProxy
 {
