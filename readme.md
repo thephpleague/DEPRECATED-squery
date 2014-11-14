@@ -10,8 +10,6 @@ PHP wrapper for [osquery](http://osquery.io).
 
 ## Example
 
-Simple usage:
-
 ```php
 use League\Squery\BuilderProxy;
 use League\Squery\RunnerProxy;
