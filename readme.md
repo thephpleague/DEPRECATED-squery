@@ -42,6 +42,6 @@ More at [squery.thephpleague.com](http://squery.thephpleague.com/examples).
 ## Testing
 
 ```sh
-❯ composer create-project "league/squery:~2.0.0" .
+❯ composer create-project --dev --prefer-source "league/squery:~2.0.0" .
 ❯ vendor/bin/phpunit
 ```
