@@ -24,6 +24,11 @@ class ProcessRunner implements Runner
     {
         if ($factory === null) {
             $factory = new ProcessFactory();
+        } else {
+            trigger_error(
+                "Factories are depreciated (http://squery.thephpleague.com/services)",
+                E_USER_DEPRECATED
+            );
         }
 
         $this->factory = $factory;

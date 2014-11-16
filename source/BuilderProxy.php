@@ -21,6 +21,11 @@ class BuilderProxy extends AbstractProxy
     {
         if ($factory === null) {
             $factory = new BuilderFactory();
+        } else {
+            trigger_error(
+                "Factories are depreciated (http://squery.thephpleague.com/services)",
+                E_USER_DEPRECATED
+            );
         }
 
         $this->factory = $factory;

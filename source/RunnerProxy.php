@@ -21,6 +21,11 @@ class RunnerProxy extends AbstractProxy
     {
         if ($factory === null) {
             $factory = new RunnerFactory();
+        } else {
+            trigger_error(
+                "Factories are depreciated (http://squery.thephpleague.com/services)",
+                E_USER_DEPRECATED
+            );
         }
 
         $this->factory = $factory;

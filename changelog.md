@@ -38,4 +38,4 @@ Basically, everything changed!
 
 WIP
 
-- Depreciated factories in favour of service location (refer to documentation)
+- Factories are depreciated ([http://squery.thephpleague.com/services](http://squery.thephpleague.com/services))
