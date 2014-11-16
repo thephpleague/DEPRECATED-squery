@@ -33,3 +33,9 @@ Basically, everything changed!
 ## 2.1.0
 
 - Excluded `composer.lock` from the zip archive.
+
+# 2.2.0
+
+WIP
+
+- Depreciated factories in favour of service location (refer to documentation)
