@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Squery\Tests\Traits\Proxy;
+namespace League\Tests\Squery\Traits\Proxy;
 
 use League\Squery\Factory;
 use LogicException;

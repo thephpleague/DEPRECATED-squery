@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Squery\Tests\Factory;
+namespace League\Tests\Squery\Factory;
 
 use League\Squery\Factory\ProcessFactory;
 use League\Squery\Process\Process;
-use League\Squery\Tests\TestCase;
+use League\Tests\Squery\TestCase;
 
 class ProcessFactoryTest extends TestCase
 {

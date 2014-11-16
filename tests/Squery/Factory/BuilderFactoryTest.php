@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Squery\Tests\Factory;
+namespace League\Tests\Squery\Factory;
 
 use League\Squery\Builder\Builder;
 use League\Squery\Factory\BuilderFactory;
-use League\Squery\Tests\TestCase;
+use League\Tests\Squery\TestCase;
 
 class BuilderFactoryTest extends TestCase
 {

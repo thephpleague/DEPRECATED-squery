@@ -1,12 +1,14 @@
 <?php
 
-namespace League\Squery\Tests;
+namespace League\Tests\Squery;
 
 use League\Squery\Builder\Builder;
-use League\Squery\BuilderProxy;
-use League\Squery\Factory\BuilderFactory;
+use League\Squery\Factory\RunnerFactory;
+use League\Squery\Runner\Runner;
+use League\Squery\RunnerProxy;
+use Mockery;
 
-class BuilderProxyTest extends TestCase
+class RunnerProxyTest extends TestCase
 {
     use Traits\Proxy\CustomFactories;
     use Traits\Proxy\DefaultFactories;
@@ -18,21 +20,25 @@ class BuilderProxyTest extends TestCase
     /**
      * @test
      *
+     * @expectedException PHPUnit_Framework_Error_Deprecated
+     *
      * @return void
      */
     public function itCreatesDefaultFactory()
     {
-        $this->assertCustomFactories(BuilderFactory::class, BuilderProxy::class);
+        $this->assertCustomFactories(RunnerFactory::class, RunnerProxy::class);
     }
 
     /**
      * @test
      *
+     * @expectedException PHPUnit_Framework_Error_Deprecated
+     *
      * @return void
      */
     public function itAllowsCustomFactories()
     {
-        $this->assertCustomFactories(BuilderFactory::class, BuilderProxy::class);
+        $this->assertCustomFactories(RunnerFactory::class, RunnerProxy::class);
     }
 
     /**
@@ -42,7 +48,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForMissingStaticMethods()
     {
-        $this->assertMissingStaticMethods(BuilderProxy::class);
+        $this->assertMissingStaticMethods(RunnerProxy::class);
     }
 
     /**
@@ -52,7 +58,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForMissingMethods()
     {
-        $this->assertMissingMethods(BuilderProxy::class);
+        $this->assertMissingMethods(RunnerProxy::class);
     }
 
     /**
@@ -62,16 +68,20 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->assertInvalidFactories(BuilderProxy::class, "select");
+        $this->markTestIncomplete();
     }
 
     /**
      * @test
      *
+     * @expectedException PHPUnit_Framework_Error_Deprecated
+     *
      * @return void
      */
     public function itDelegatesMethods()
     {
-        $this->assertDelegatesMethods(BuilderFactory::class, Builder::class, "select", BuilderProxy::class, "select");
+        $builder = Mockery::mock(Builder::class);
+
+        $this->assertDelegatesMethods(RunnerFactory::class, Runner::class, "run", RunnerProxy::class, "run", [$builder]);
     }
 }

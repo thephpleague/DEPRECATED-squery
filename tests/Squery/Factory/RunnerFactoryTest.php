@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Squery\Tests\Factory;
+namespace League\Tests\Squery\Factory;
 
 use League\Squery\Factory\RunnerFactory;
 use League\Squery\Runner\Runner;
-use League\Squery\Tests\TestCase;
+use League\Tests\Squery\TestCase;
 
 class RunnerFactoryTest extends TestCase
 {
