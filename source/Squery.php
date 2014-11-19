@@ -2,47 +2,87 @@
 
 namespace League;
 
+use Aura\SqlQuery\Quoter;
+use Aura\SqlQuery\Sqlite\Select;
+use League\Squery\Builder\AuraBuilder;
+use League\Squery\Process\SymfonyProcess;
+use League\Squery\Runner\ProcessRunner;
+use Pimple\Container;
+use Symfony\Component\Process\Process;
+
 class Squery
 {
-
-    protected static $provider;
-
-    protected static $shared = [];
-
-    protected static $bound = [];
-
-    protected function __construct()
+    /**
+     * @param Container $container
+     */
+    private static function registerBuilder(Container $container)
     {
+        $container["squery/builder/quoter"] = function () {
+            return new Quoter('"', '"');
+        };
 
+        $container["squery/builder/select"] = function ($container) {
+            return new Select(
+                $container["squery/builder/quoter"]
+            );
+        };
+
+        $container["squery/builder"] = function ($container) {
+            return new AuraBuilder(
+                $container["squery/builder/select"]
+            );
+        };
     }
 
-    protected function __clone()
+    /**
+     * @param Container $container
+     */
+    private static function registerRunner(Container $container)
     {
-
+        $container["squery/runner"] = function () {
+            return new ProcessRunner();
+        };
     }
 
-    protected static function getProvider()
+    /**
+     * @param Container $container
+     */
+    private static function registerProcess(Container $container)
     {
-        if (static::$provider === null) {
-            $provider = new Container(new Factory);
+        $container["squery/process"] = function ($container) {
+            return new SymfonyProcess(
+                $container["squery/process/process"]
+            );
+        };
 
-            $provider->params["squery.builder"]["provider"] = $provider->lazyNew("squery.select");
+        $container["squery/process/process"] = function () {
+            return new Process("echo");
+        };
+    }
 
-            $provider->params["squery.select"]["quoter"] = $provider->lazyNew("squery.quoter");
+    /**
+     * @return Container
+     */
+    public static function container()
+    {
+        static $container = null;
 
-            $provider->params["squery.quoter"]["quote_name_prefix"] = '"';
-            $provider->params["squery.quoter"]["quote_name_suffix"] = '"';
+        if ($container === null) {
+            $container = new Container();
 
-            static::$provider = $provider;
+            static::registerBuilder($container);
+            static::registerRunner($container);
+            static::registerProcess($container);
         }
+
+        return $container;
     }
 
-    public static function get($key)
+    /**
+     * @param string $message
+     */
+    public static function depreciate($message)
     {
-        return static::$provider->get($key);
-    }
-
-    public static function set($key, $value)
-    {
+        trigger_error($message, E_USER_WARNING);
     }
 }

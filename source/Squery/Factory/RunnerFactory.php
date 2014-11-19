@@ -2,16 +2,17 @@
 
 namespace League\Squery\Factory;
 
+use League\Squery;
 use League\Squery\Factory;
-use League\Squery\Runner\ProcessRunner;
+use League\Squery\Runner\Runner;
 
 class RunnerFactory implements Factory
 {
     /**
-     * @return ProcessRunner
+     * @return Runner
      */
     public function newInstance()
     {
-        return new ProcessRunner();
+        return Squery::container()["squery/runner"];
     }
 }

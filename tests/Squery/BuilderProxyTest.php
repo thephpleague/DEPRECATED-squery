@@ -5,9 +5,6 @@ namespace League\Tests\Squery;
 use League\Squery\Builder\Builder;
 use League\Squery\BuilderProxy;
 use League\Squery\Factory\BuilderFactory;
-use LogicException;
-use Mockery;
-use League\Squery\Factory;
 
 class BuilderProxyTest extends TestCase
 {
@@ -21,8 +18,6 @@ class BuilderProxyTest extends TestCase
     /**
      * @test
      *
-     * @expectedException PHPUnit_Framework_Error_Deprecated
-     *
      * @return void
      */
     public function itCreatesDefaultFactory()
@@ -32,8 +27,6 @@ class BuilderProxyTest extends TestCase
 
     /**
      * @test
-     *
-     * @expectedException PHPUnit_Framework_Error_Deprecated
      *
      * @return void
      */
@@ -69,13 +62,11 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->markTestIncomplete();
+        $this->assertInvalidFactories(BuilderProxy::class, "select");
     }
 
     /**
      * @test
-     *
-     * @expectedException PHPUnit_Framework_Error_Deprecated
      *
      * @return void
      */

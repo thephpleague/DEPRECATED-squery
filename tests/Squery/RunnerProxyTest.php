@@ -20,8 +20,6 @@ class RunnerProxyTest extends TestCase
     /**
      * @test
      *
-     * @expectedException PHPUnit_Framework_Error_Deprecated
-     *
      * @return void
      */
     public function itCreatesDefaultFactory()
@@ -31,8 +29,6 @@ class RunnerProxyTest extends TestCase
 
     /**
      * @test
-     *
-     * @expectedException PHPUnit_Framework_Error_Deprecated
      *
      * @return void
      */
@@ -68,13 +64,11 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->markTestIncomplete();
+        $this->assertInvalidFactories(RunnerProxy::class, "select");
     }
 
     /**
      * @test
-     *
-     * @expectedException PHPUnit_Framework_Error_Deprecated
      *
      * @return void
      */

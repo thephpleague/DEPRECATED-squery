@@ -34,8 +34,6 @@ Basically, everything changed!
 
 - Excluded `composer.lock` from the zip archive.
 
-# 2.2.0
+## 2.2.0
 
-WIP
-
-- Factories are depreciated ([http://squery.thephpleague.com/services](http://squery.thephpleague.com/services))
+- Factories are depreciated ([http://squery.thephpleague.com/services](http://squery.thephpleague.com/services)).
