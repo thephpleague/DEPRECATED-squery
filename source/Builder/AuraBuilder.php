@@ -24,7 +24,7 @@ class AuraBuilder implements Builder
      */
     public function __toString()
     {
-        return preg_replace("#\\s+#", " ", $this->provider);
+        return (string) preg_replace("#\\s+#", " ", $this->provider);
     }
 
     /**

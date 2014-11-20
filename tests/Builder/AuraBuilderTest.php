@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Squery\tests\Builder;
+namespace League\Squery\Tests\Builder;
 
 use Aura\SqlQuery\Sqlite\Select;
 use League\Squery\Builder\AuraBuilder;
@@ -46,7 +46,9 @@ class AuraBuilderTest extends TestCase
             ["fromSelect", [$mock], "fromSubSelect", ["mocked", Mockery::type("string")]]
         ]);
 
-        foreach ($methods as list($builderMethod, $builderParameters, $providerMethod, $providerParameters)) {
+        foreach ($methods as $method) {
+            list($builderMethod, $builderParameters, $providerMethod, $providerParameters) = $method;
+
             $select = $this->createNewSelect($providerMethod, $providerParameters);
 
             $builder = new AuraBuilder($select);
