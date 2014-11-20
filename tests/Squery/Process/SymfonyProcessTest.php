@@ -1,9 +1,9 @@
 <?php
 
-namespace League\Squery\Tests\Process;
+namespace League\Tests\Squery\Process;
 
 use League\Squery\Process\SymfonyProcess;
-use League\Squery\Tests\TestCase;
+use League\Tests\Squery\TestCase;
 use Mockery;
 use Symfony\Component\Process\Process;
 

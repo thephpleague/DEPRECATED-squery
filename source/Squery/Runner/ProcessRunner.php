@@ -2,6 +2,7 @@
 
 namespace League\Squery\Runner;
 
+use League\Squery;
 use League\Squery\Builder\Builder;
 use League\Squery\Factory;
 use League\Squery\Factory\ProcessFactory;
@@ -24,6 +25,8 @@ class ProcessRunner implements Runner
     {
         if ($factory === null) {
             $factory = new ProcessFactory();
+        } else {
+            Squery::depreciate("Factories are depreciated (http://squery.thephpleague.com/services)");
         }
 
         $this->factory = $factory;

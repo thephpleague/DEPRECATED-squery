@@ -1,14 +1,12 @@
 <?php
 
-namespace League\Squery\Tests;
+namespace League\Tests\Squery;
 
 use League\Squery\Builder\Builder;
-use League\Squery\Factory\RunnerFactory;
-use League\Squery\Runner\Runner;
-use League\Squery\RunnerProxy;
-use Mockery;
+use League\Squery\BuilderProxy;
+use League\Squery\Factory\BuilderFactory;
 
-class RunnerProxyTest extends TestCase
+class BuilderProxyTest extends TestCase
 {
     use Traits\Proxy\CustomFactories;
     use Traits\Proxy\DefaultFactories;
@@ -24,7 +22,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itCreatesDefaultFactory()
     {
-        $this->assertCustomFactories(RunnerFactory::class, RunnerProxy::class);
+        $this->assertCustomFactories(BuilderFactory::class, BuilderProxy::class);
     }
 
     /**
@@ -34,7 +32,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itAllowsCustomFactories()
     {
-        $this->assertCustomFactories(RunnerFactory::class, RunnerProxy::class);
+        $this->assertCustomFactories(BuilderFactory::class, BuilderProxy::class);
     }
 
     /**
@@ -44,7 +42,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForMissingStaticMethods()
     {
-        $this->assertMissingStaticMethods(RunnerProxy::class);
+        $this->assertMissingStaticMethods(BuilderProxy::class);
     }
 
     /**
@@ -54,7 +52,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForMissingMethods()
     {
-        $this->assertMissingMethods(RunnerProxy::class);
+        $this->assertMissingMethods(BuilderProxy::class);
     }
 
     /**
@@ -64,7 +62,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->assertInvalidFactories(RunnerProxy::class, "run");
+        $this->assertInvalidFactories(BuilderProxy::class, "select");
     }
 
     /**
@@ -74,8 +72,6 @@ class RunnerProxyTest extends TestCase
      */
     public function itDelegatesMethods()
     {
-        $builder = Mockery::mock(Builder::class);
-
-        $this->assertDelegatesMethods(RunnerFactory::class, Runner::class, "run", RunnerProxy::class, "run", [$builder]);
+        $this->assertDelegatesMethods(BuilderFactory::class, Builder::class, "select", BuilderProxy::class, "select");
     }
 }

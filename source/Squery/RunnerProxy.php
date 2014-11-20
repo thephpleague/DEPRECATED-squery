@@ -2,6 +2,7 @@
 
 namespace League\Squery;
 
+use League\Squery;
 use League\Squery\Factory\RunnerFactory;
 use League\Squery\Runner\Runner;
 
@@ -21,6 +22,8 @@ class RunnerProxy extends AbstractProxy
     {
         if ($factory === null) {
             $factory = new RunnerFactory();
+        } else {
+            Squery::depreciate("Factories are depreciated (http://squery.thephpleague.com/services)");
         }
 
         $this->factory = $factory;

@@ -40,6 +40,6 @@ Basically, everything changed!
 
 ## 2.3.0
 
-- Factories depreciated.
+- Factories depreciated ([http://squery.thephpleague.com/services](http://squery.thephpleague.com/services)).
 - Pimple added to resolve dependencies.
 - Updated readme + documentation.

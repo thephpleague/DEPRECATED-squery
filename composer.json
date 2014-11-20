@@ -10,25 +10,26 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "symfony/process": "2.*",
-        "aura/sqlquery": "2.*"
+        "symfony/process": "~2.5.6",
+        "aura/sqlquery": "~2.1.0",
+        "pimple/pimple": "~3.0.0"
     },
     "autoload": {
         "psr-4": {
-            "League\\Squery\\": "source"
+            "League\\": "source"
         }
     },
     "require-dev": {
         "php": ">=5.5.0",
-        "phpunit/phpunit": "4.*",
-        "mockery/mockery": "0.*"
+        "phpunit/phpunit": "~4.3.5",
+        "mockery/mockery": "~0.9.2"
     },
     "autoload-dev": {
         "files": [
             "tests/TestCase.php"
         ],
         "psr-4": {
-            "League\\Squery\\Tests\\": "tests"
+            "League\\Tests\\": "tests"
         }
     }
 }

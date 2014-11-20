@@ -1,12 +1,12 @@
 <?php
 
-namespace League\Squery\Tests\Builder;
+namespace League\Tests\Squery\Builder;
 
 use League\Squery\Builder\Builder;
 use League\Squery\Factory;
 use League\Squery\Process\Process;
 use League\Squery\Runner\ProcessRunner;
-use League\Squery\Tests\TestCase;
+use League\Tests\Squery\TestCase;
 use LogicException;
 use Mockery;
 
@@ -14,6 +14,8 @@ class ProcessRunnerTest extends TestCase
 {
     /**
      * @test
+     *
+     * @expectedException PHPUnit_Framework_Error_Deprecated
      *
      * @return void
      */

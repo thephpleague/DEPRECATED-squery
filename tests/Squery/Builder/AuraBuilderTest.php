@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Squery\Tests\Builder;
+namespace League\Tests\Squery\Builder;
 
 use Aura\SqlQuery\Sqlite\Select;
 use League\Squery\Builder\AuraBuilder;
-use League\Squery\Tests\TestCase;
+use League\Tests\Squery\TestCase;
 use Mockery;
 
 class AuraBuilderTest extends TestCase
