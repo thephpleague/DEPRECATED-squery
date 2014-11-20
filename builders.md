@@ -18,14 +18,14 @@ $builder = BuilderProxy::select("*")
 print $builder; // SELECT * FROM "processes" LIMIT 5
 ~~~
 
-The default builder is based on [Aura.Sql](https://github.com/auraphp/Aura.Sql). This builds SQLite-compatible queries, which make it compatible with [osquery](http://osquery.io). You can construct builders directly:
+The default builder is based on [Aura.SqlQuery](https://github.com/auraphp/Aura.SqlQuery). This builds SQLite-compatible queries, which make it compatible with [osquery](http://osquery.io). You can construct builders directly:
 
 ~~~ php
-use League\Squery\Factory\BuilderFactory;
+use League\Squery;
 
-$factory = new BuilderFactory();
+$container = Squery::container();
 
-$builder = $factory->newInstance();
+$builder = $container["squery/builder"];
 
 $builder
     ->select("*")

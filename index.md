@@ -21,7 +21,7 @@ Install `league/squery` through composer.
 ~~~ json
 {
     "require": {
-        "league/squery": "~2.0.0"
+        "league/squery": "~2.3.0"
     }
 }
 ~~~

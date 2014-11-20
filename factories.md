@@ -6,6 +6,8 @@ title: Factories
 
 # Factories
 
+<div class="message-warning">Factories were depreciated in 2.3.0. You should use <a href="/services/">services</a> to extend Squery.</div>
+
 You can extend builders and runners by subclassing factories:
 
 ~~~ php

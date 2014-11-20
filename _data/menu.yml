@@ -7,3 +7,4 @@ Concepts:
     Runners: '/runners/'
 Extending:
     Factories: '/factories/'
+    Services: '/services/'

@@ -21,11 +21,11 @@ RunnerProxy::run($builder, function(array $rows) {
 The underlying runner will get the SQL query and send it to the command-line utility, returning CSV data. You can construct runners directly:
 
 ~~~ php
-use League\Squery\Factory\RunnerFactory;
+use League\Squery;
 
-$factory = new RunnerFactory();
+$container = Squery::container();
 
-$runner = $factory->newInstance();
+$builder = $container["squery/runner"];
 
 $runner->run($builder, function(array $rows) {}, function($error) {});
 ~~~
