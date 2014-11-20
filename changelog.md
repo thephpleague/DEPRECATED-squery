@@ -33,3 +33,13 @@ Basically, everything changed!
 ## 2.1.0
 
 - Excluded `composer.lock` from the zip archive.
+
+## 2.2.0
+
+- Changes to `.gitattributes`,  `.editorconfig` and `.travis.yml`.
+
+## 2.3.0
+
+- Factories depreciated.
+- Pimple added to resolve dependencies.
+- Updated readme + documentation.
