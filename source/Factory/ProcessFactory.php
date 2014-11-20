@@ -9,7 +9,7 @@ use Symfony\Component\Process\Process;
 class ProcessFactory implements Factory
 {
     /**
-     * @return AuraBuilder
+     * @return Process
      */
     public function newInstance()
     {

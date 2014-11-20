@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Squery\Tests\Traits\Proxy;
+namespace League\Squery\tests\Traits\Proxy;
 
 use Mockery;
 
@@ -22,9 +22,9 @@ trait CustomFactories
     }
 
     /**
-     * @param mixed  $expected
-     * @param mixed  $actual
-     * @param string $message
+     * @param Mockery\MockInterface $expected
+     * @param mixed                 $actual
+     * @param string                $message
      *
      * @return void
      */

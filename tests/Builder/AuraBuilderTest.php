@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Squery\Tests\Builder;
+namespace League\Squery\tests\Builder;
 
 use Aura\SqlQuery\Sqlite\Select;
 use League\Squery\Builder\AuraBuilder;
@@ -59,7 +59,7 @@ class AuraBuilderTest extends TestCase
      * @param string|null $method
      * @param array       $parameters
      *
-     * @return Select
+     * @return Mockery\MockInterface
      */
     protected function createNewSelect($method = null, array $parameters = [])
     {

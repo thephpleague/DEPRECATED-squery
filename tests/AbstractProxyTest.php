@@ -20,11 +20,11 @@ class ConcreteProxy extends AbstractProxy
      * @param string $method
      * @param array  $parameters
      *
-     * @return mixed
+     * @return string
      */
     protected function handleMethod($method, array $parameters)
     {
-        return true;
+        return "mocked handleMethod";
     }
 }
 
@@ -37,6 +37,6 @@ class AbstractProxyTest extends TestCase
      */
     public function itHandlesStaticMethodCalls()
     {
-        ConcreteProxy::foo();
+        $this->assertEquals("mocked handleMethod", ConcreteProxy::foo());
     }
 }
