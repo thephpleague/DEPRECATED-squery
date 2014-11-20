@@ -44,7 +44,7 @@ class ProcessRunnerTest extends TestCase
     }
 
     /**
-     * @return Builder
+     * @return Mockery\MockInterface
      */
     protected function getNewBuilderMock()
     {
@@ -52,7 +52,7 @@ class ProcessRunnerTest extends TestCase
     }
 
     /**
-     * @return Process
+     * @return Mockery\MockInterface
      */
     protected function getNewProcessMock()
     {
@@ -60,7 +60,7 @@ class ProcessRunnerTest extends TestCase
     }
 
     /**
-     * @return Factory
+     * @return Mockery\MockInterface
      */
     protected function getNewFactoryMock()
     {

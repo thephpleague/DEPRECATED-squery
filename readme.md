@@ -36,12 +36,12 @@ More at [squery.thephpleague.com](http://squery.thephpleague.com/examples).
 ## Installation
 
 ```sh
-❯ composer require "league/squery:~2.0.0"
+❯ composer require "league/squery:~2.3.0"
 ```
 
 ## Testing
 
 ```sh
-❯ composer create-project --dev --prefer-source "league/squery:~2.0.0" .
+❯ composer create-project --prefer-source "league/squery:~2.3.0" .
 ❯ vendor/bin/phpunit
 ```

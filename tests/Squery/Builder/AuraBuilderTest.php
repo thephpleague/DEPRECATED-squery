@@ -46,7 +46,9 @@ class AuraBuilderTest extends TestCase
             ["fromSelect", [$mock], "fromSubSelect", ["mocked", Mockery::type("string")]]
         ]);
 
-        foreach ($methods as list($builderMethod, $builderParameters, $providerMethod, $providerParameters)) {
+        foreach ($methods as $method) {
+            list($builderMethod, $builderParameters, $providerMethod, $providerParameters) = $method;
+
             $select = $this->createNewSelect($providerMethod, $providerParameters);
 
             $builder = new AuraBuilder($select);
@@ -59,7 +61,7 @@ class AuraBuilderTest extends TestCase
      * @param string|null $method
      * @param array       $parameters
      *
-     * @return Select
+     * @return Mockery\MockInterface
      */
     protected function createNewSelect($method = null, array $parameters = [])
     {

@@ -31,8 +31,8 @@ interface Builder
     public function from($table);
 
     /**
-     * @param Builder $builder
-     * @param mixed   $alias
+     * @param Builder     $builder
+     * @param string|null $alias
      *
      * @return $this
      */

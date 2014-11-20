@@ -36,4 +36,10 @@ Basically, everything changed!
 
 ## 2.2.0
 
-- Factories are depreciated ([http://squery.thephpleague.com/services](http://squery.thephpleague.com/services)).
+- Changes to `.gitattributes`,  `.editorconfig` and `.travis.yml`.
+
+## 2.3.0
+
+- Factories depreciated ([http://squery.thephpleague.com/services](http://squery.thephpleague.com/services)).
+- Pimple added to resolve dependencies.
+- Updated readme + documentation.

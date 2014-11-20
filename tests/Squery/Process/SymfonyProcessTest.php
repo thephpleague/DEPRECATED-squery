@@ -26,7 +26,7 @@ class SymfonyProcessTest extends TestCase
     }
 
     /**
-     * @return Process
+     * @return Mockery\MockInterface
      */
     protected function getNewProcessMock()
     {

@@ -22,9 +22,9 @@ trait CustomFactories
     }
 
     /**
-     * @param mixed  $expected
-     * @param mixed  $actual
-     * @param string $message
+     * @param Mockery\MockInterface $expected
+     * @param mixed                 $actual
+     * @param string                $message
      *
      * @return void
      */
