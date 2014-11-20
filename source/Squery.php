@@ -15,7 +15,7 @@ class Squery
     /**
      * @param Container $container
      */
-    private static function registerBuilder(Container $container)
+    protected static function registerBuilder(Container $container)
     {
         $container["squery/builder/quoter"] = function () {
             return new Quoter('"', '"');
@@ -37,7 +37,7 @@ class Squery
     /**
      * @param Container $container
      */
-    private static function registerRunner(Container $container)
+    protected static function registerRunner(Container $container)
     {
         $container["squery/runner"] = function () {
             return new ProcessRunner();
@@ -47,7 +47,7 @@ class Squery
     /**
      * @param Container $container
      */
-    private static function registerProcess(Container $container)
+    protected static function registerProcess(Container $container)
     {
         $container["squery/process"] = function ($container) {
             return new SymfonyProcess(
