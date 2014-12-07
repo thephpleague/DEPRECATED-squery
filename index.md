@@ -11,7 +11,7 @@ title: Squery
 [![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/thephpleague/squery.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/squery/code-structure)
 [![Version](http://img.shields.io/packagist/v/league/squery.svg?style=flat-square)](https://packagist.org/packages/league/squery)
 [![License](http://img.shields.io/packagist/l/league/squery.svg?style=flat-square)](https://github.com/thephpleague/squery/blob/master/license.md)
-[![Source](http://img.shields.io/badge/Source-Github-blue.svg?style=flat-square)](https://github.com/thephpleague/squery)
+[![Source](http://img.shields.io/badge/Source-Github-red.svg?style=flat-square)](https://github.com/thephpleague/squery)
 
 `league/squery` is a neat wrapper for [osquery](http://osquery.io). It provides a fluent interface for building SQL queries against system-level data.
 
