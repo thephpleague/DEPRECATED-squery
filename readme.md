@@ -5,7 +5,6 @@
 [![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/thephpleague/squery.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/squery/code-structure)
 [![Version](http://img.shields.io/packagist/v/league/squery.svg?style=flat-square)](https://packagist.org/packages/league/squery)
 [![License](http://img.shields.io/packagist/l/league/squery.svg?style=flat-square)](license.md)
-[![Source](http://img.shields.io/badge/source-github-red.svg?style=flat-square)](https://github.com/thephpleague/squery)
 
 PHP wrapper for [osquery](http://osquery.io).
 
