@@ -1,12 +1,12 @@
 <?php
 
-namespace League\Tests\Squery;
+namespace League\Squery\Test;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
 use ReflectionClass;
 
-class TestCase extends PHPUnit_Framework_TestCase
+class Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @return void

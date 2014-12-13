@@ -1,16 +1,15 @@
 <?php
 
-namespace League\Tests\Squery\Builder;
+namespace League\Squery\Test\Runner;
 
 use League\Squery\Builder\Builder;
 use League\Squery\Factory;
 use League\Squery\Process\Process;
 use League\Squery\Runner\ProcessRunner;
-use League\Tests\Squery\TestCase;
-use LogicException;
+use League\Squery\Test\Test;
 use Mockery;
 
-class ProcessRunnerTest extends TestCase
+class ProcessRunnerTest extends Test
 {
     /**
      * @test
@@ -48,7 +47,7 @@ class ProcessRunnerTest extends TestCase
      */
     protected function getNewBuilderMock()
     {
-        return Mockery::mock(Builder::class);
+        return Mockery::mock("League\\Squery\\Builder\\Builder");
     }
 
     /**
@@ -56,7 +55,7 @@ class ProcessRunnerTest extends TestCase
      */
     protected function getNewProcessMock()
     {
-        return Mockery::mock(Process::class);
+        return Mockery::mock("League\\Squery\\Process\\Process");
     }
 
     /**
@@ -64,7 +63,7 @@ class ProcessRunnerTest extends TestCase
      */
     protected function getNewFactoryMock()
     {
-        return Mockery::mock(Factory::class);
+        return Mockery::mock("League\\Squery\\Factory");
     }
 
     /**
@@ -116,7 +115,7 @@ class ProcessRunnerTest extends TestCase
      */
     protected function assertFactoryReturnsValidProcess(Factory $factory, ProcessRunner $runner, Builder $builder)
     {
-        $this->setExpectedException(LogicException::class);
+        $this->setExpectedException("LogicException");
 
         $factory->shouldReceive("newInstance")
             ->andReturn($factory);

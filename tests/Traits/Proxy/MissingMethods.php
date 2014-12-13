@@ -1,21 +1,21 @@
 <?php
 
-namespace League\Tests\Squery\Traits\Proxy;
+namespace League\Squery\Test\Traits\Proxy;
 
-use LogicException;
-
-trait MissingStaticMethods
+trait MissingMethods
 {
     /**
      * @param string $class
      *
      * @return void
      */
-    protected function assertMissingStaticMethods($class)
+    protected function assertMissingMethods($class)
     {
-        $this->setExpectedException(LogicException::class);
+        $this->setExpectedException("LogicException");
 
-        forward_static_call([$class, "foo"]);
+        $proxy = new $class();
+
+        $proxy->foo();
     }
 
     /**

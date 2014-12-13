@@ -1,13 +1,12 @@
 <?php
 
-namespace League\Tests\Squery\Builder;
+namespace League\Squery\Test\Builder;
 
-use Aura\SqlQuery\Sqlite\Select;
 use League\Squery\Builder\AuraBuilder;
-use League\Tests\Squery\TestCase;
+use League\Squery\Test\Test;
 use Mockery;
 
-class AuraBuilderTest extends TestCase
+class AuraBuilderTest extends Test
 {
     /**
      * @test
@@ -36,7 +35,7 @@ class AuraBuilderTest extends TestCase
             ["binding", [["foo" => "bar"]], "bindValue", ["foo", "bar"]],
         ];
 
-        $mock = Mockery::mock(AuraBuilder::class);
+        $mock = Mockery::mock("League\\Squery\\Builder\\AuraBuilder");
 
         $mock->shouldReceive("__toString")
             ->andReturn("mocked");
@@ -65,7 +64,7 @@ class AuraBuilderTest extends TestCase
      */
     protected function createNewSelect($method = null, array $parameters = [])
     {
-        $select = Mockery::mock(Select::class);
+        $select = Mockery::mock("Aura\\SqlQuery\\Sqlite\\Select");
 
         if ($method !== null) {
             $select->shouldReceive($method)

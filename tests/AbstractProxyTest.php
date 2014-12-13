@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Tests\Squery;
+namespace League\Squery\Test;
 
 use League\Squery\AbstractProxy;
 
@@ -28,7 +28,7 @@ class ConcreteProxy extends AbstractProxy
     }
 }
 
-class AbstractProxyTest extends TestCase
+class AbstractProxyTest extends Test
 {
     /**
      * @test

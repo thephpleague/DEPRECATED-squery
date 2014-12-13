@@ -1,14 +1,10 @@
 <?php
 
-namespace League\Tests\Squery;
+namespace League\Squery\Test;
 
-use League\Squery\Builder\Builder;
-use League\Squery\Factory\RunnerFactory;
-use League\Squery\Runner\Runner;
-use League\Squery\RunnerProxy;
 use Mockery;
 
-class RunnerProxyTest extends TestCase
+class RunnerProxyTest extends Test
 {
     use Traits\Proxy\CustomFactories;
     use Traits\Proxy\DefaultFactories;
@@ -24,7 +20,10 @@ class RunnerProxyTest extends TestCase
      */
     public function itCreatesDefaultFactory()
     {
-        $this->assertCustomFactories(RunnerFactory::class, RunnerProxy::class);
+        $this->assertDefaultFactories(
+            "League\\Squery\\Factory\\RunnerFactory",
+            "League\\Squery\\RunnerProxy"
+        );
     }
 
     /**
@@ -34,7 +33,10 @@ class RunnerProxyTest extends TestCase
      */
     public function itAllowsCustomFactories()
     {
-        $this->assertCustomFactories(RunnerFactory::class, RunnerProxy::class);
+        $this->assertCustomFactories(
+            "League\\Squery\\Factory\\RunnerFactory",
+            "League\\Squery\\RunnerProxy"
+        );
     }
 
     /**
@@ -44,7 +46,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForMissingStaticMethods()
     {
-        $this->assertMissingStaticMethods(RunnerProxy::class);
+        $this->assertMissingStaticMethods("League\\Squery\\RunnerProxy");
     }
 
     /**
@@ -54,7 +56,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForMissingMethods()
     {
-        $this->assertMissingMethods(RunnerProxy::class);
+        $this->assertMissingMethods("League\\Squery\\RunnerProxy");
     }
 
     /**
@@ -64,7 +66,7 @@ class RunnerProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->assertInvalidFactories(RunnerProxy::class, "select");
+        $this->assertInvalidFactories("League\\Squery\\RunnerProxy", "select");
     }
 
     /**
@@ -74,8 +76,13 @@ class RunnerProxyTest extends TestCase
      */
     public function itDelegatesMethods()
     {
-        $builder = Mockery::mock(Builder::class);
+        $builder = Mockery::mock("League\\Squery\\Builder\\Builder");
 
-        $this->assertDelegatesMethods(RunnerFactory::class, Runner::class, "run", RunnerProxy::class, "run", [$builder]);
+        $this->assertDelegatesMethods(
+            "League\\Squery\\Factory\\RunnerFactory",
+            "League\\Squery\\Runner\\Runner", "run",
+            "League\\Squery\\RunnerProxy", "run",
+            [$builder]
+        );
     }
 }
