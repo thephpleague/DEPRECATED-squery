@@ -48,3 +48,7 @@ Basically, everything changed!
 
 - Replaced `pimple/pimple` with `assertchris/simple-container`
 - Moved container bindings to `defaults.php`
+
+## 2.4.1
+
+- Adjusted tests to work on 5.4

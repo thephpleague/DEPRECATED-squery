@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Tests\Squery\Traits\Proxy;
+namespace League\Squery\Test\Traits\Proxy;
 
 use Mockery;
 

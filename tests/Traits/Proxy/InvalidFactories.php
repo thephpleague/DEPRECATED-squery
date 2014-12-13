@@ -1,9 +1,7 @@
 <?php
 
-namespace League\Tests\Squery\Traits\Proxy;
+namespace League\Squery\Test\Traits\Proxy;
 
-use League\Squery\Factory;
-use LogicException;
 use Mockery;
 
 trait InvalidFactories
@@ -16,9 +14,9 @@ trait InvalidFactories
      */
     protected function assertInvalidFactories($class, $method)
     {
-        $this->setExpectedException(LogicException::class);
+        $this->setExpectedException("LogicException");
 
-        $factory = Mockery::mock(Factory::class);
+        $factory = Mockery::mock("League\\Squery\\Factory");
         $factory->shouldReceive("newInstance")->andReturn($factory);
 
         $instance = forward_static_call([$class, "with"], $factory);

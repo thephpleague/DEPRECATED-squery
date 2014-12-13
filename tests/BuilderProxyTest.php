@@ -1,12 +1,8 @@
 <?php
 
-namespace League\Tests\Squery;
+namespace League\Squery\Test;
 
-use League\Squery\Builder\Builder;
-use League\Squery\BuilderProxy;
-use League\Squery\Factory\BuilderFactory;
-
-class BuilderProxyTest extends TestCase
+class BuilderProxyTest extends Test
 {
     use Traits\Proxy\CustomFactories;
     use Traits\Proxy\DefaultFactories;
@@ -22,7 +18,10 @@ class BuilderProxyTest extends TestCase
      */
     public function itCreatesDefaultFactory()
     {
-        $this->assertCustomFactories(BuilderFactory::class, BuilderProxy::class);
+        $this->assertDefaultFactories(
+            "League\\Squery\\Factory\\BuilderFactory",
+            "League\\Squery\\BuilderProxy"
+        );
     }
 
     /**
@@ -32,7 +31,10 @@ class BuilderProxyTest extends TestCase
      */
     public function itAllowsCustomFactories()
     {
-        $this->assertCustomFactories(BuilderFactory::class, BuilderProxy::class);
+        $this->assertCustomFactories(
+            "League\\Squery\\Factory\\BuilderFactory",
+            "League\\Squery\\BuilderProxy"
+        );
     }
 
     /**
@@ -42,7 +44,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForMissingStaticMethods()
     {
-        $this->assertMissingStaticMethods(BuilderProxy::class);
+        $this->assertMissingStaticMethods("League\\Squery\\BuilderProxy");
     }
 
     /**
@@ -52,7 +54,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForMissingMethods()
     {
-        $this->assertMissingMethods(BuilderProxy::class);
+        $this->assertMissingMethods("League\\Squery\\BuilderProxy");
     }
 
     /**
@@ -62,7 +64,7 @@ class BuilderProxyTest extends TestCase
      */
     public function itThrowsForInvalidFactories()
     {
-        $this->assertInvalidFactories(BuilderProxy::class, "select");
+        $this->assertInvalidFactories("League\\Squery\\BuilderProxy", "select");
     }
 
     /**
@@ -72,6 +74,10 @@ class BuilderProxyTest extends TestCase
      */
     public function itDelegatesMethods()
     {
-        $this->assertDelegatesMethods(BuilderFactory::class, Builder::class, "select", BuilderProxy::class, "select");
+        $this->assertDelegatesMethods(
+            "League\\Squery\\Factory\\BuilderFactory",
+            "League\\Squery\\Builder\\Builder", "select",
+            "League\\Squery\\BuilderProxy", "select"
+        );
     }
 }

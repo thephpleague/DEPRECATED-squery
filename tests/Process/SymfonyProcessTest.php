@@ -1,13 +1,13 @@
 <?php
 
-namespace League\Tests\Squery\Process;
+namespace League\Squery\Test\Process;
 
 use League\Squery\Process\SymfonyProcess;
-use League\Tests\Squery\TestCase;
+use League\Squery\Test\Test;
 use Mockery;
 use Symfony\Component\Process\Process;
 
-class SymfonyProcessTest extends TestCase
+class SymfonyProcessTest extends Test
 {
     /**
      * @test
@@ -30,7 +30,7 @@ class SymfonyProcessTest extends TestCase
      */
     protected function getNewProcessMock()
     {
-        $provider = Mockery::mock(Process::class);
+        $provider = Mockery::mock("Symfony\\Component\\Process\\Process");
 
         $provider->shouldReceive("setCommandLine");
         $provider->shouldReceive("stop");
