@@ -2,7 +2,7 @@
 
 [![Build Status](http://img.shields.io/travis/thephpleague/squery.svg?style=flat-square)](https://travis-ci.org/thephpleague/squery)
 [![Code Quality](http://img.shields.io/scrutinizer/g/thephpleague/squery.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/squery)
-[![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/thephpleague/squery.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/squery/code-structure)
+[![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/thephpleague/squery.svg?style=flat-square)](http://squery.thephpleague.com/master)
 [![Version](http://img.shields.io/packagist/v/league/squery.svg?style=flat-square)](https://packagist.org/packages/league/squery)
 [![License](http://img.shields.io/packagist/l/league/squery.svg?style=flat-square)](license.md)
 
@@ -36,12 +36,12 @@ More at [squery.thephpleague.com](http://squery.thephpleague.com/examples).
 ## Installation
 
 ```sh
-❯ composer require "league/squery:~2.3.0"
+❯ composer require "league/squery:~2.4.0"
 ```
 
 ## Testing
 
 ```sh
-❯ composer create-project --prefer-source "league/squery:~2.3.0" .
+❯ composer create-project --prefer-source "league/squery:~2.4.0" .
 ❯ vendor/bin/phpunit
 ```
