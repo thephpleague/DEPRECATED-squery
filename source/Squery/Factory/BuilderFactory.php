@@ -13,6 +13,6 @@ class BuilderFactory implements Factory
      */
     public function newInstance()
     {
-        return Squery::container()["squery/builder"];
+        return Squery::container()->resolve("squery/builder");
     }
 }

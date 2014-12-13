@@ -13,6 +13,6 @@ class ProcessFactory implements Factory
      */
     public function newInstance()
     {
-        return Squery::container()["squery/process"];
+        return Squery::container()->resolve("squery/process");
     }
 }

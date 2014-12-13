@@ -32,14 +32,19 @@ Basically, everything changed!
 
 ## 2.1.0
 
-- Excluded `composer.lock` from the zip archive.
+- Excluded `composer.lock` from the zip archive
 
 ## 2.2.0
 
-- Changes to `.gitattributes`,  `.editorconfig` and `.travis.yml`.
+- Changes to `.gitattributes`,  `.editorconfig` and `.travis.yml`
 
 ## 2.3.0
 
-- Factories depreciated ([http://squery.thephpleague.com/services](http://squery.thephpleague.com/services)).
-- Pimple added to resolve dependencies.
-- Updated readme + documentation.
+- Factories depreciated ([http://squery.thephpleague.com/services](http://squery.thephpleague.com/services))
+- Pimple added to resolve dependencies
+- Updated readme + documentation
+
+## 2.4.0
+
+- Replaced `pimple/pimple` with `assertchris/simple-container`
+- Moved container bindings to `defaults.php`

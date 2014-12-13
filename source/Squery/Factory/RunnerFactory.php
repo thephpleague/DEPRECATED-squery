@@ -13,6 +13,6 @@ class RunnerFactory implements Factory
      */
     public function newInstance()
     {
-        return Squery::container()["squery/runner"];
+        return Squery::container()->resolve("squery/runner");
     }
 }

@@ -12,7 +12,7 @@
         "php": ">=5.4.0",
         "symfony/process": "~2.5.6",
         "aura/sqlquery": "~2.1.0",
-        "pimple/pimple": "~3.0.0"
+        "assertchris/simple-container": "~1.1.0"
     },
     "autoload": {
         "psr-4": {
