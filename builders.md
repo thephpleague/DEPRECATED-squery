@@ -25,7 +25,7 @@ use League\Squery;
 
 $container = Squery::container();
 
-$builder = $container["squery/builder"];
+$builder = $container->resolve("squery/builder");
 
 $builder
     ->select("*")

@@ -25,7 +25,7 @@ use League\Squery;
 
 $container = Squery::container();
 
-$builder = $container["squery/runner"];
+$builder = $container->resolve("squery/runner");
 
 $runner->run($builder, function(array $rows) {}, function($error) {});
 ~~~

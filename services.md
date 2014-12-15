@@ -24,13 +24,13 @@ use League\Squery;
 
 $container = Squery::container();
 
-$container["squery/builder"] = function($container) {
+$container->bind("squery/builder", function($container) {
     return new CustomBuilder();
-};
+});
 
-$container["squery/runner"] = function($container) {
+$container->bind("squery/runner", function($container) {
     return new CustomRunner();
-};
+});
 ~~~
 
 <div class="message-notice">Squery binds other dependencies but they are implementation details of the default runner and builder. These are the only keys you should need to override.</div>
