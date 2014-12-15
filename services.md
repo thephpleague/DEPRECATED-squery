@@ -8,7 +8,7 @@ title: Services
 
 <div class="message-notice">Services have replaced factories in 2.3.0.</div>
 
-Squery uses [Pimple](http://pimple.sensiolabs.org) to create new dependency instances. You can access the contain with:
+Squery uses [Simple Container](https://github.com/assertchris/simple-container) to create new dependency instances. You can access the contain with:
 
 ~~~ php
 use League\Squery;
