@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7b4327bf838df62123d0ee83a117bd60",
+    "hash": "63fdfd4df0ec4f3876d365b295c4796c",
     "packages": [
         {
             "name": "assertchris/simple-container",
@@ -1030,7 +1030,5 @@
     "platform": {
         "php": ">=5.4.0"
     },
-    "platform-dev": {
-        "php": ">=5.5.0"
-    }
+    "platform-dev": []
 }

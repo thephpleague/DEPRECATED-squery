@@ -90,7 +90,7 @@ class ProcessRunner implements Runner
     {
         $instance = $this->factory->newInstance();
 
-        $this->throwIfUnacceptable($instance, Process::class);
+        $this->throwIfUnacceptable($instance, "League\\Squery\\Process\\Process");
 
         $instance->run($command, $onData, $onError);
 

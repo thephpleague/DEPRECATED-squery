@@ -49,7 +49,7 @@ class RunnerProxy extends AbstractProxy
     {
         $runner = $this->factory->newInstance();
 
-        $this->throwIfUnacceptable($runner, Runner::class);
+        $this->throwIfUnacceptable($runner, "League\\Squery\\Runner\\Runner");
 
         return call_user_func_array([$runner, "run"], $parameters);
     }

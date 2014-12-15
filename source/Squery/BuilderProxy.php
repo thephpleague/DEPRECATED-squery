@@ -49,7 +49,7 @@ class BuilderProxy extends AbstractProxy
     {
         $builder = $this->factory->newInstance();
 
-        $this->throwIfUnacceptable($builder, Builder::class);
+        $this->throwIfUnacceptable($builder, "League\\Squery\\Builder\\Builder");
 
         return call_user_func_array([$builder, "select"], $parameters);
     }
