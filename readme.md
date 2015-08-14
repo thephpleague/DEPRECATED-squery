@@ -1,3 +1,5 @@
+# This library is deprecated, please do not use it.
+
 # League\Squery
 
 [![Build Status](http://img.shields.io/travis/thephpleague/squery.svg?style=flat-square)](https://travis-ci.org/thephpleague/squery)
